@@ -1,0 +1,8 @@
+Package: webpagetestr
+Type: Package
+Title: webpagetestr
+Version: 0.0.1
+Authors@R: c( person("John", "Harrison", , "johndharrison0@gmail.com",
+    role = c("aut", "cre")))
+Description: webpagetestr
+License: MIT + file LICENSE
