@@ -1,10 +1,17 @@
 Package: webpagetestr
 Type: Package
-Title: webpagetestr
-Version: 0.0.1
+Title: `WebPageTest` API wrapper for R
+Version: 0.0.2
 Authors@R: c( person("John", "Harrison", , "johndharrison0@gmail.com",
     role = c("aut", "cre")))
-Description: webpagetestr
+Description: Interact with <http://www.webpagetest.org/> via the 
+    WebPageTest REST API. Run a free website speed test from multiple 
+    locations around the globe using real browsers (IE and Chrome) and at 
+    real consumer connection speeds. You can run simple tests or perform 
+    advanced testing including multi-step transactions, video capture, 
+    content blocking and much more. Your results will provide rich 
+    diagnostic information including resource loading waterfall charts, 
+    Page Speed optimization checks and suggestions for improvements.
 Imports:
     httr,
     assertthat
