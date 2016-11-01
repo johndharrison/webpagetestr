@@ -7,7 +7,8 @@
 server(serverURL = "http://www.webpagetest.org")
 }
 \arguments{
-\item{the}{WPT server URL defaults to <http://www.webpagetest.org>}
+\item{serverURL}{the WPT server URL defaults to 
+<http://www.webpagetest.org>}
 }
 \value{
 returns a WPTserver object to be used by other functions

@@ -2,7 +2,8 @@
 #'
 #' Detail a WPT server for tests
 #' 
-#' @param the WPT server URL defaults to <http://www.webpagetest.org>
+#' @param serverURL the WPT server URL defaults to 
+#'    <http://www.webpagetest.org>
 #'
 #' @return returns a WPTserver object to be used by other functions
 #' @export
