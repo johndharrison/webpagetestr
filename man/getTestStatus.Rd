@@ -22,6 +22,9 @@ returns the status of a test
 check test status
 }
 \examples{
-
+\dontrun{
+  WPT <- server()
+  locs <- getStatus(WPT, "someID")
+}
 }
 
