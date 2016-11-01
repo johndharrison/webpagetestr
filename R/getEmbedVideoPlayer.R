@@ -1,4 +1,3 @@
-
-funName <- function(){
+getEmbedVideoPlayer <- function(){
 } 
 

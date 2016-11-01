@@ -1,4 +1,3 @@
-
-funName <- function(){
+getTimelineData <- function(){
 } 
 

@@ -1,4 +1,3 @@
-
-funName <- function(){
+createVideo <- function(){
 } 
 
