@@ -706,3 +706,12 @@ checkArgs <- function(...){
   if(!is.null(caArgs$testId)){assert_that(is_string(caArgs$testId))}
   
 }
+
+sendQuery <- function(url, body, origin, ...){
+  WPTResponse <- POST(url = url,
+                      body = body, ...)
+  stop_for_status(WPTResponse, paste(origin, "returned response:", 
+                                     WPTResponse$status))
+  WPTResponse                 
+}
+
