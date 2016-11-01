@@ -1,4 +1,4 @@
-paths <- 
+WPTPaths <- 
   list(testStatus = "testStatus.php", 
        testResults = "jsonResult.php", 
        locations = "getLocations.php", 
@@ -17,7 +17,7 @@ paths <-
        timeline = "getTimeline.php"
   )
 
-WPToptions <- 
+WPTOptions <- 
   list(server = 
          list(
            name = "server", 
@@ -236,120 +236,464 @@ WPToptions <-
            param = "switches", 
            info = "use a list of custom command line switches (Chrome only)"
          ), 
-       login = list(name = "login", key = "g", api = "login", param = "username", 
-                    info = "username for authenticating tests (http authentication)"), 
-       password = list(name = "password", key = "w", api = "password", 
-                       param = "password", info = "password for authenticating tests (http authentication)"), 
-       sensitive = list(name = "sensitive", key = "t", api = "sensitive", 
-                        bool = TRUE, info = "discard script and http headers in the result"), 
-       disableHTTPHeaders = list(name = "disableHTTPHeaders", key = "H", 
-                                 api = "noheaders", bool = TRUE, info = "disable saving of the http headers (as well as browser status messages and CPU utilization)"), 
-       block = list(name = "block", key = "b", api = "block", param = "urls", 
-                    array = TRUE, info = "space-delimited list of urls to block (substring match)"), 
-       spof = list(name = "spof", key = "Z", api = "spof", param = "domains", 
-                   array = TRUE, info = "space-delimited list of domains to simulate failure by re-routing to blackhole.webpagetest.org to silently drop all requests"), 
-       customMetrics = list(name = "customMetrics", key = "c", api = "custom", 
-                            param = "script", info = "execute arbitrary javascript at the end of a test to collect custom metrics"), 
-       authenticationType = list(name = "authenticationType", key = "a", 
-                                 api = "authType", param = "type", info = "type of authentication: 0 = Basic, 1 = SNS [0]"), 
-       notifyEmail = list(name = "notifyEmail", key = "n", api = "notify", 
-                          param = "e-mail", info = "e-mail address to notify with the test results"), 
-       pingback = list(name = "pingback", key = "B", api = "pingback", 
-                       param = "url", info = "URL to ping when the test is complete (the test ID will be passed as an \"id\" parameter)"), 
-       bandwidthDown = list(name = "bandwidthDown", key = "D", api = "bwDown", 
-                            param = "bandwidth", info = "download bandwidth in Kbps (used when specifying a custom connectivity profile)"), 
-       bandwidthUp = list(name = "bandwidthUp", key = "U", api = "bwUp", 
-                          param = "bandwidth", info = "upload bandwidth in Kbps (used when specifying a custom connectivity profile)"), 
-       latency = list(name = "latency", key = "Y", api = "latency", 
-                      param = "time", info = "first-hop Round Trip Time in ms (used when specifying a custom connectivity profile)"), 
-       packetLossRate = list(name = "packetLossRate", key = "P", 
-                             api = "plr", param = "percentage", info = "packet loss rate - percent of packets to drop (used when specifying a custom connectivity profile)"), 
-       disableOptimization = list(name = "disableOptimization", 
-                                  key = "z", api = "noopt", bool = TRUE, info = "disable optimization checks (for faster testing)"), 
-       disableScreenshot = list(name = "disableScreenshot", key = "I", 
-                                api = "noimages", bool = TRUE, info = "disable screen shot capturing"), 
-       fullResolutionScreenshot = list(name = "fullResolutionScreenshot", 
-                                       key = "F", api = "pngss", bool = TRUE, info = "save a full-resolution version of the fully loaded screen shot as a PNG"), 
-       jpegQuality = list(name = "jpegQuality", key = "j", api = "iq", 
-                          param = "level", info = "jpeg compression level (30-100) for the screen shots and video capture"), 
-       medianVideo = list(name = "medianVideo", key = "A", api = "mv", 
-                          bool = TRUE, info = "store the video from the median run when capturing video is enabled"), 
-       htmlBody = list(name = "htmlBody", api = "htmlbody", bool = TRUE, 
-                       info = "save the content of only the base HTML response"), 
-       tsView = list(name = "tsView", api = "tsview_id", param = "id", 
-                     info = "test name to use when submitting results to tsviewdb (for private instances that have integrated with tsviewdb)"), 
-       tsViewConfigs = list(name = "tsViewConfigs", api = "tsview_configs", 
-                            param = "string", info = "configs to use when submitting results to tsviewdb (for private instances that have integrated with tsviewdb)"), 
-       affinity = list(name = "affinity", api = "affinity", param = "string", 
-                       info = "string to hash test to a specific test agent. tester will be picked by index among available testers"), 
-       priority = list(name = "priority", api = "priority", param = "number", 
-                       info = "change test priority (0-9) [enforced by API key, otherwise 5]", 
-                       valid = list()), blockAds = list(name = "blockAds", api = "blockads", 
-                                                        bool = TRUE, info = "block ads defined by adblockrules.org"), 
-       continuousVideoCapture = list(name = "continuousVideoCapture", 
-                                     api = "continuousVideo", bool = TRUE, info = "capture video continuously (unstable/experimental, may cause tests to fail)"), 
-       forceSpdy3 = list(name = "forceSpdy3", api = "spdy3", bool = TRUE, 
-                         info = "force SPDY version 3 (Chrome only)"), forceSoftwareRendering = list(
-                           name = "forceSoftwareRendering", api = "swrender", bool = TRUE, 
-                           info = "force software rendering, disable GPU acceleration (Chrome only)"), 
-       pollResults = list(name = "pollResults", param = "interval", 
-                          optional = TRUE, info = "poll for results after test is scheduled at every <interval> seconds [5]"), 
-       waitResults = list(name = "waitResults", param = "hostname:port", 
-                          optional = TRUE, info = "wait for test results informed by agent once complete listening on <hostname>:<port> [hostname:first port available above 8000]"), 
-       timeout = list(name = "timeout", param = "seconds", info = "timeout for polling and waiting results [no timeout]"), 
-       requestId = list(name = "requestId", key = "e", api = "r", 
-                        param = "id", info = "echo request ID, useful to track asynchronous requests"), 
-       run = list(name = "run", key = "r", param = "number", info = "which run number on a multiple runs test [1]"), 
-       repeatView = list(name = "repeatView", key = "c", bool = TRUE, 
-                         info = "get the Repeat View (cached view) instead of default First View (primed cache)"), 
-       thumbnail = list(name = "thumbnail", key = "t", bool = TRUE, 
-                        info = "get the thumbnail of actual image"), dataURI = list(
-                          name = "dataURI", key = "u", bool = TRUE, info = "return the base64 string representation (inline) of actual image"), 
-       fullResolution = list(name = "fullResolution", key = "f", 
-                             bool = TRUE, info = "get full resolution screenshot in PNG format if available"), 
-       startRender = list(name = "startRender", key = "n", bool = TRUE, 
-                          info = "get the page screenshot at the Start Render point (i.e.: when something was first displayed on screen)"), 
-       documentComplete = list(name = "documentComplete", key = "p", 
-                               bool = TRUE, info = "get the page screenshot at the Document Complete point (i.e.: when window.onload was fired)"), 
-       breakDown = list(name = "breakDown", key = "b", api = "breakdown", 
-                        bool = TRUE, info = "include the breakdown of requests and bytes by mime type"), 
-       domains = list(name = "domains", key = "D", api = "domains", 
-                      bool = TRUE, info = "include the breakdown of requests and bytes by domain"), 
-       pageSpeed = list(name = "pageSpeed", key = "p", api = "pagespeed", 
-                        bool = TRUE, info = "include the PageSpeed score in the response (may be slower)"), 
-       requests = list(name = "requests", key = "R", api = "requests", 
-                       bool = TRUE, info = "include the request data in the response (slower and results in much larger responses)"), 
-       medianMetric = list(name = "medianMetric", key = "m", api = "medianMetric", 
-                           param = "metric", info = "set the metric used to calculate median for multiple runs tests [loadTime]"), 
-       medianRun = list(name = "medianRun", api = "medianRun", param = "metric", 
-                        info = "set the run used for median for multiple runs tests [median]"), 
-       specs = list(name = "specs", key = "S", param = "json_or_file", 
-                    info = "set the specs for performance test suite"), reporter = list(
-                      name = "reporter", key = "r", param = "name", info = "set performance test suite reporter output: [dot]|spec|tap|xunit|list|progress|min|nyan|landing|json|doc|markdown|teamcity", 
-                      valid = list()), chartType = list(name = "chartType", 
-                                                        api = "type", key = "T", param = "chart", info = "set the chart type: waterfall or connection [waterfall]"), 
-       colorByMime = list(name = "colorByMime", api = "mime", key = "M", 
-                          bool = TRUE, info = "set chart coloring by MIME type [false]"), 
-       chartWidth = list(name = "chartWidth", api = "width", key = "w", 
-                         param = "px", info = "chart image width in px (300-2000) [930]"), 
-       maxTime = list(name = "maxTime", api = "max", key = "m", 
-                      param = "seconds", info = "set maximum time in seconds [automatic]"), 
-       requests = list(name = "requests", api = "requests", key = "R", 
-                       param = "items", info = "filter requests (e.g.:1,2,3,4-9,8) [all]"), 
-       noCPU = list(name = "noCPU", api = "cpu", key = "C", bool = TRUE, 
-                    invert = TRUE, info = "hide CPU utilization [false]"), 
-       noBandwidth = list(name = "noBandwidth", api = "bw", key = "b", 
-                          bool = TRUE, invert = TRUE, info = "hide bandwidth utilization [false]"), 
-       noEllipsis = list(name = "noEllipsis", api = "dots", key = "i", 
-                         bool = TRUE, invert = TRUE, info = "hide ellipsis (...) for missing items [false]"), 
-       noLabels = list(name = "noLabels", api = "labels", key = "l", 
-                       bool = TRUE, invert = TRUE, info = "hide labels for requests (URL) [false]"), 
-       key = list(name = "key", key = "k", api = "k", param = "api_key", 
-                  info = "API key (if assigned). Contact the WebPageTest server administrator for a key if required"), 
-       comparisonEndPoint = list(name = "comparisonEndPoint", key = "e", 
-                                 api = "end", param = "end_point", info = "frame comparison end point: [visual]=visually complete | all=last change | doc=document complete | full=fully loaded", 
-                                 valid = list()), request = list(name = "request", api = "request", 
-                                                                 key = "R", param = "number", info = "the request number [1]"))
+       login = 
+         list(
+           name = "login", 
+           key = "g", 
+           api = "login", 
+           param = "username", 
+           info = "username for authenticating tests (http authentication)"
+         ), 
+       password = 
+         list(
+           name = "password", 
+           key = "w", 
+           api = "password", 
+           param = "password", 
+           info = "password for authenticating tests (http authentication)"
+         ), 
+       sensitive = 
+         list(
+           name = "sensitive", 
+           key = "t", 
+           api = "sensitive", 
+           bool = TRUE, 
+           info = "discard script and http headers in the result"
+         ), 
+       disableHTTPHeaders = 
+         list(
+           name = "disableHTTPHeaders", 
+           key = "H", 
+           api = "noheaders", 
+           bool = TRUE, 
+           info = "disable saving of the http headers (as well as browser status messages and CPU utilization)"
+         ), 
+       block = 
+         list(
+           name = "block", 
+           key = "b", 
+           api = "block", 
+           param = "urls", 
+           array = TRUE, 
+           info = "space-delimited list of urls to block (substring match)"
+         ), 
+       spof = 
+         list(
+           name = "spof", 
+           key = "Z", 
+           api = "spof", 
+           param = "domains", 
+           array = TRUE, 
+           info = "space-delimited list of domains to simulate failure by re-routing to blackhole.webpagetest.org to silently drop all requests"
+         ), 
+       customMetrics = 
+         list(
+           name = "customMetrics", 
+           key = "c", 
+           api = "custom", 
+           param = "script", 
+           info = "execute arbitrary javascript at the end of a test to collect custom metrics"
+         ), 
+       authenticationType = 
+         list(
+           name = "authenticationType", 
+           key = "a", 
+           api = "authType", 
+           param = "type", 
+           info = "type of authentication: 0 = Basic, 1 = SNS [0]"
+         ), 
+       notifyEmail = 
+         list(
+           name = "notifyEmail", 
+           key = "n", 
+           api = "notify", 
+           param = "e-mail", 
+           info = "e-mail address to notify with the test results"
+         ), 
+       pingback = 
+         list(
+           name = "pingback", 
+           key = "B", 
+           api = "pingback", 
+           param = "url", 
+           info = "URL to ping when the test is complete (the test ID will be passed as an \"id\" parameter)"
+         ), 
+       bandwidthDown = 
+         list(
+           name = "bandwidthDown", 
+           key = "D", 
+           api = "bwDown", 
+           param = "bandwidth", 
+           info = "download bandwidth in Kbps (used when specifying a custom connectivity profile)"
+         ), 
+       bandwidthUp = 
+         list(
+           name = "bandwidthUp", 
+           key = "U", 
+           api = "bwUp", 
+           param = "bandwidth", 
+           info = "upload bandwidth in Kbps (used when specifying a custom connectivity profile)"
+         ), 
+       latency = 
+         list(
+           name = "latency", 
+           key = "Y", 
+           api = "latency", 
+           param = "time", 
+           info = "first-hop Round Trip Time in ms (used when specifying a custom connectivity profile)"
+         ), 
+       packetLossRate = 
+         list(name = "packetLossRate", 
+              key = "P", 
+              api = "plr", 
+              param = "percentage", 
+              info = "packet loss rate - percent of packets to drop (used when specifying a custom connectivity profile)"
+         ), 
+       disableOptimization = 
+         list(
+           name = "disableOptimization", 
+           key = "z", 
+           api = "noopt", 
+           bool = TRUE, 
+           info = "disable optimization checks (for faster testing)"
+         ), 
+       disableScreenshot = 
+         list(
+           name = "disableScreenshot", 
+           key = "I", 
+           api = "noimages", 
+           bool = TRUE, 
+           info = "disable screen shot capturing"
+         ), 
+       fullResolutionScreenshot = 
+         list(
+           name = "fullResolutionScreenshot", 
+           key = "F", 
+           api = "pngss", 
+           bool = TRUE, 
+           info = "save a full-resolution version of the fully loaded screen shot as a PNG"
+         ), 
+       jpegQuality = 
+         list(
+           name = "jpegQuality", 
+           key = "j", 
+           api = "iq", 
+           param = "level", 
+           info = "jpeg compression level (30-100) for the screen shots and video capture"
+         ), 
+       medianVideo = 
+         list(
+           name = "medianVideo", 
+           key = "A", 
+           api = "mv", 
+           bool = TRUE, 
+           info = "store the video from the median run when capturing video is enabled"
+         ), 
+       htmlBody = 
+         list(
+           name = "htmlBody", 
+           api = "htmlbody", 
+           bool = TRUE, 
+           info = "save the content of only the base HTML response"
+         ), 
+       tsView = 
+         list(
+           name = "tsView", 
+           api = "tsview_id", 
+           param = "id", 
+           info = "test name to use when submitting results to tsviewdb (for private instances that have integrated with tsviewdb)"
+         ), 
+       tsViewConfigs = 
+         list(
+           name = "tsViewConfigs", 
+           api = "tsview_configs", 
+           param = "string", 
+           info = "configs to use when submitting results to tsviewdb (for private instances that have integrated with tsviewdb)"
+         ), 
+       affinity = 
+         list(
+           name = "affinity", 
+           api = "affinity", 
+           param = "string", 
+           info = "string to hash test to a specific test agent. tester will be picked by index among available testers"
+         ), 
+       priority = 
+         list(
+           name = "priority", 
+           api = "priority", 
+           param = "number", 
+           info = "change test priority (0-9) [enforced by API key, otherwise 5]", 
+           valid = list()
+         ), 
+       blockAds = 
+         list(
+           name = "blockAds", 
+           api = "blockads", 
+           bool = TRUE, 
+           info = "block ads defined by adblockrules.org"
+         ), 
+       continuousVideoCapture = 
+         list(
+           name = "continuousVideoCapture", 
+           api = "continuousVideo", 
+           bool = TRUE, 
+           info = "capture video continuously (unstable/experimental, may cause tests to fail)"
+         ), 
+       forceSpdy3 = 
+         list(
+           name = "forceSpdy3", 
+           api = "spdy3", 
+           bool = TRUE, 
+           info = "force SPDY version 3 (Chrome only)"
+         ), 
+       forceSoftwareRendering = 
+         list(
+           name = "forceSoftwareRendering", 
+           api = "swrender", 
+           bool = TRUE, 
+           info = "force software rendering, disable GPU acceleration (Chrome only)"
+         ), 
+       pollResults = 
+         list(
+           name = "pollResults", 
+           param = "interval", 
+           optional = TRUE, 
+           info = "poll for results after test is scheduled at every <interval> seconds [5]"
+         ), 
+       waitResults = 
+         list(
+           name = "waitResults", 
+           param = "hostname:port", 
+           optional = TRUE, 
+           info = "wait for test results informed by agent once complete listening on <hostname>:<port> [hostname:first port available above 8000]"
+         ), 
+       timeout = 
+         list(
+           name = "timeout", 
+           param = "seconds", 
+           info = "timeout for polling and waiting results [no timeout]"
+         ), 
+       requestId = 
+         list(
+           name = "requestId", 
+           key = "e", 
+           api = "r", 
+           param = "id", 
+           info = "echo request ID, useful to track asynchronous requests"
+         ), 
+       run = 
+         list(
+           name = "run", 
+           key = "r", 
+           param = "number", 
+           info = "which run number on a multiple runs test [1]"
+         ), 
+       repeatView = 
+         list(
+           name = "repeatView", 
+           key = "c", 
+           bool = TRUE, 
+           info = "get the Repeat View (cached view) instead of default First View (primed cache)"
+         ), 
+       thumbnail = 
+         list(
+           name = "thumbnail", 
+           key = "t", 
+           bool = TRUE, 
+           info = "get the thumbnail of actual image"
+         ), 
+       dataURI = 
+         list(
+           name = "dataURI", 
+           key = "u", 
+           bool = TRUE, 
+           info = "return the base64 string representation (inline) of actual image"
+         ), 
+       fullResolution = 
+         list(
+           name = "fullResolution", 
+           key = "f", 
+           bool = TRUE, 
+           info = "get full resolution screenshot in PNG format if available"
+         ), 
+       startRender = 
+         list(
+           name = "startRender", 
+           key = "n", 
+           bool = TRUE, 
+           info = "get the page screenshot at the Start Render point (i.e.: when something was first displayed on screen)"
+         ), 
+       documentComplete = 
+         list(
+           name = "documentComplete", 
+           key = "p", 
+           bool = TRUE, 
+           info = "get the page screenshot at the Document Complete point (i.e.: when window.onload was fired)"
+         ), 
+       breakDown = 
+         list(
+           name = "breakDown", 
+           key = "b", 
+           api = "breakdown", 
+           bool = TRUE, 
+           info = "include the breakdown of requests and bytes by mime type"
+         ), 
+       domains = 
+         list(
+           name = "domains", 
+           key = "D", 
+           api = "domains", 
+           bool = TRUE, 
+           info = "include the breakdown of requests and bytes by domain"
+         ), 
+       pageSpeed = 
+         list(
+           name = "pageSpeed", 
+           key = "p", 
+           api = "pagespeed", 
+           bool = TRUE, 
+           info = "include the PageSpeed score in the response (may be slower)"
+         ), 
+       requests = 
+         list(
+           name = "requests", 
+           key = "R", 
+           api = "requests", 
+           bool = TRUE, 
+           info = "include the request data in the response (slower and results in much larger responses)"
+         ), 
+       medianMetric = 
+         list(
+           name = "medianMetric", 
+           key = "m", 
+           api = "medianMetric", 
+           param = "metric", 
+           info = "set the metric used to calculate median for multiple runs tests [loadTime]"
+         ), 
+       medianRun = 
+         list(
+           name = "medianRun", 
+           api = "medianRun", 
+           param = "metric", 
+           info = "set the run used for median for multiple runs tests [median]"
+         ), 
+       specs = 
+         list(
+           name = "specs", 
+           key = "S", 
+           param = "json_or_file", 
+           info = "set the specs for performance test suite"
+         ), 
+       reporter = 
+         list(
+           name = "reporter", 
+           key = "r", 
+           param = "name", 
+           info = "set performance test suite reporter output: [dot]|spec|tap|xunit|list|progress|min|nyan|landing|json|doc|markdown|teamcity", 
+           valid = list()
+         ), 
+       chartType = 
+         list(
+           name = "chartType", 
+           api = "type", 
+           key = "T", 
+           param = "chart", 
+           info = "set the chart type: waterfall or connection [waterfall]"
+         ), 
+       colorByMime = 
+         list(
+           name = "colorByMime", 
+           api = "mime", 
+           key = "M", 
+           bool = TRUE, 
+           info = "set chart coloring by MIME type [false]"
+         ), 
+       chartWidth = 
+         list(
+           name = "chartWidth", 
+           api = "width", 
+           key = "w", 
+           param = "px", 
+           info = "chart image width in px (300-2000) [930]"
+         ), 
+       maxTime = 
+         list(
+           name = "maxTime", 
+           api = "max", 
+           key = "m", 
+           param = "seconds", 
+           info = "set maximum time in seconds [automatic]"
+         ), 
+       requests = 
+         list(
+           name = "requests", 
+           api = "requests", 
+           key = "R", 
+           param = "items", 
+           info = "filter requests (e.g.:1,2,3,4-9,8) [all]"
+         ), 
+       noCPU = 
+         list(
+           name = "noCPU", 
+           api = "cpu", 
+           key = "C", 
+           bool = TRUE, 
+           invert = TRUE, 
+           info = "hide CPU utilization [false]"
+         ), 
+       noBandwidth = 
+         list(
+           name = "noBandwidth", 
+           api = "bw", 
+           key = "b", 
+           bool = TRUE, 
+           invert = TRUE, 
+           info = "hide bandwidth utilization [false]"
+         ), 
+       noEllipsis = 
+         list(
+           name = "noEllipsis", 
+           api = "dots", 
+           key = "i", 
+           bool = TRUE, 
+           invert = TRUE, 
+           info = "hide ellipsis (...) for missing items [false]"
+         ), 
+       noLabels = 
+         list(
+           name = "noLabels", 
+           api = "labels", 
+           key = "l", 
+           bool = TRUE, 
+           invert = TRUE, 
+           info = "hide labels for requests (URL) [false]"
+         ), 
+       key = 
+         list(
+           name = "key", 
+           key = "k", 
+           api = "k", 
+           param = "api_key", 
+           info = "API key (if assigned). Contact the WebPageTest server administrator for a key if required"
+         ), 
+       comparisonEndPoint = 
+         list(
+           name = "comparisonEndPoint", 
+           key = "e", 
+           api = "end", 
+           param = "end_point", 
+           info = "frame comparison end point: [visual]=visually complete | all=last change | doc=document complete | full=fully loaded", 
+           valid = list()
+         ), 
+       request = 
+         list(
+           name = "request", 
+           api = "request", 
+           key = "R", 
+           param = "number", 
+           info = "the request number [1]"
+         )
+  )
 checkArgs <- function(...){
   aNames <- as.character(as.list(substitute(list(...)))[-1L])
   caArgs <- setNames(list(...), aNames)
