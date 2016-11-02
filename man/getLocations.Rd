@@ -4,12 +4,15 @@
 \alias{getLocations}
 \title{Get server locations}
 \usage{
-getLocations(server, requestId = NULL, ...)
+getLocations(server, requestId = NULL, dryrun = FALSE, ...)
 }
 \arguments{
 \item{server}{A WebPagetest server}
 
 \item{requestId}{request ID, useful to track asynchronous requests}
+
+\item{dryrun}{If TRUE just return the RESTful API URL. Defaults to 
+FALSE}
 
 \item{...}{Additonal function arguments}
 }
