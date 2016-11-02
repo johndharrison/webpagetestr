@@ -2,6 +2,7 @@
 
 export(getLocations)
 export(getTestStatus)
+export(getTesters)
 export(server)
 importFrom(assertthat,"on_failure<-")
 importFrom(assertthat,assert_that)
