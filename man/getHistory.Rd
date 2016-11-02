@@ -4,12 +4,14 @@
 \alias{getHistory}
 \title{Get test history}
 \usage{
-getHistory(server, days = 1L, dryRun = FALSE, ...)
+getHistory(server, days = 1L, filter = NULL, dryRun = FALSE, ...)
 }
 \arguments{
 \item{server}{A WebPagetest server}
 
 \item{days}{Number of days to get history for defaults to 1L.}
+
+\item{filter}{optional string to filter the results against}
 
 \item{dryRun}{If TRUE just return the RESTful API URL. Defaults to 
 FALSE}

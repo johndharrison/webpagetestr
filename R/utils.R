@@ -727,6 +727,9 @@ checkArgs <- function(...){
   if(!is.null(caArgs$days)){
     assert_that(is_integer(caArgs$days))
   }
+  if(!is.null(caArgs$filter)){
+    assert_that(is_string_or_null(caArgs$filter))
+  }
   
 }
 

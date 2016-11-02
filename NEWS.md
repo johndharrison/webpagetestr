@@ -2,6 +2,7 @@
 * Add getHistory function, tests and docs
 * Add option to use GET in sendQuery internal function
 * getTestStatus checks for statusCode <= 200L now
+* Filter argument added to getHistory
 
 # 0.0.3
 * Add getTesters function, tests and docs
