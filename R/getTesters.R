@@ -18,7 +18,7 @@ getTesters <- function(server, requestId = NULL, dryRun = FALSE, ...){
     list(requestId, "json"),
     c(WPTOptions$requestId$api, "f")
   )
-  res <- sendQuery(url = file.path(server$url, WPTPaths$testers), 
+  res <- sendQuery(url = server$url, path = WPTPaths$history, 
                    body = body, origin = "getTesters", dryRun = dryRun,
                    ...)
   if(dryRun){return(res)}

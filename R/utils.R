@@ -723,13 +723,16 @@ checkArgs <- function(...){
     assert_that(is_logical(caArgs$dryRun))
   }
   if(!is.null(caArgs$testId)){assert_that(is_string(caArgs$testId))}
+
+  if(!is.null(caArgs$days)){
+    assert_that(is_integer(caArgs$days))
+  }
   
 }
 
-sendQuery <- function(url, body, origin, dryRun, ...){
-  if(dryRun){return(modify_url(url, query = body))}
-  WPTResponse <- POST(url = url,
-                      body = body, ...)
+sendQuery <- function(url, path, body, origin, dryRun, ...){
+  if(dryRun){return(modify_url(url, path = path, query = body))}
+  WPTResponse <- POST(url = url, body = body, path = path, ...)
   stop_for_status(WPTResponse, paste(origin, "returned response:", 
                                      WPTResponse$status))
   WPTResponse                 

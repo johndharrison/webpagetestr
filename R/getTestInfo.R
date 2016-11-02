@@ -18,7 +18,7 @@ getTestInfo <- function(server, testId , dryRun = FALSE, ...){
     list(testId, WPTfileNames$testInfo, "json"),
     c("test", "file", "f")
   )
-  res <- sendQuery(url = file.path(server$url, WPTPaths$gzip), 
+  res <- sendQuery(url = server$url, path = WPTPaths$history, 
                    body = body, origin = "getTestInfo", dryRun = dryRun,
                    ...)
   if(dryRun){return(res)}

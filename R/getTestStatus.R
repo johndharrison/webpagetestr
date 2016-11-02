@@ -19,7 +19,7 @@ getTestStatus <- function(server, testId ,requestId = NULL, dryRun = FALSE, ...)
     list(testId, requestId, "json"),
     c("test", WPTOptions$requestId$api, "f")
   )
-  res <- sendQuery(url = file.path(server$url, WPTPaths$testStatus), 
+  res <- sendQuery(url = server$url, path = WPTPaths$history, 
                    body = body, origin = "getTestStatus", dryRun = dryRun,
                    ...)
   if(dryRun){return(res)}

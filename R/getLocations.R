@@ -18,7 +18,7 @@ getLocations <- function(server, requestId = NULL, dryRun = FALSE, ...){
     list(requestId, "json"),
     c(WPTOptions$requestId$api, "f")
   )
-  res <- sendQuery(url = file.path(server$url, WPTPaths$locations), 
+  res <- sendQuery(url = server$url, path = WPTPaths$history, 
                    body = body, origin = "getLocations", dryRun = dryRun,
                    ...)
   if(dryRun){return(res)}
