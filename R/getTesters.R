@@ -24,7 +24,7 @@ getTesters <- function(server, requestId = NULL, dryrun = FALSE, ...){
   if(dryrun){return(res)}
   testers <- content(res)
   if(identical(testers$statusCode, 200L)){
-    `attr<-`(testers$data, "class", "locations")
+    `attr<-`(testers$data, "class", "testers")
   }else{
     stop("Server returned a statusCode = ", testers$statusCode,
          " with statusText = ", testers$statusText)
