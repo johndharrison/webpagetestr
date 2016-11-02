@@ -14,7 +14,8 @@ Description: Interact with <http://www.webpagetest.org/> via the
     Page Speed optimization checks and suggestions for improvements.
 Imports:
     httr,
-    assertthat
+    assertthat,
+    readr
 Suggests:
     testthat,
     covr
