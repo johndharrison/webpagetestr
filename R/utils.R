@@ -17,6 +17,22 @@ WPTPaths <-
        timeline = "getTimeline.php"
   )
 
+WPTfileNames <- list(pageSpeed = "pagespeed.txt", 
+                     utilization = "progress.csv", 
+                     request = "IEWTR.txt", 
+                     netLog = "netlog.txt", 
+                     chromeTrace = "trace.json", 
+                     consoleLog = "console_log.json", 
+                     testInfo = "testinfo.json", 
+                     history = "history.csv", 
+                     waterfall = "waterfall.png", 
+                     screenshot = "screen.jpg", 
+                     screenshotStartRender = "screen_render.jpg", 
+                     screenshotDocumentComplete = "screen_doc.jpg", 
+                     screenshotFullResolution = "screen.png", 
+                     cached = "_Cached"
+                     )
+
 WPTOptions <- 
   list(server = 
          list(
