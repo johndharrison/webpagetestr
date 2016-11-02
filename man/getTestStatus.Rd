@@ -13,13 +13,16 @@ getTestStatus(server, testId, requestId = NULL, dryRun = FALSE, ...)
 
 \item{requestId}{request ID, useful to track asynchronous requests}
 
+\item{dryRun}{If TRUE just return the RESTful API URL. Defaults to 
+FALSE}
+
 \item{...}{Additonal function arguments}
 }
 \value{
 returns the status of a test
 }
 \description{
-check test status
+check the status of a test
 }
 \examples{
 \dontrun{
