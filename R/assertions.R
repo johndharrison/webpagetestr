@@ -21,3 +21,11 @@ is_string_or_null <- function(x) {
 assertthat::on_failure(is_string_or_null) <-  function(call, env) {
   paste0(sub("caArgs\\$", "", deparse(call$x)), " is not a string or null")
 }
+
+is_logical <- function(x){
+  is.logical(x)
+}
+
+assertthat::on_failure(is_logical) <-  function(call, env) {
+  paste0(sub("caArgs\\$", "", deparse(call$x)), " is not of type logical")
+}
