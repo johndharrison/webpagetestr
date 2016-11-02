@@ -730,9 +730,13 @@ checkArgs <- function(...){
   
 }
 
-sendQuery <- function(url, path, body, origin, dryRun, ...){
+sendQuery <- function(url, path, body, origin, dryRun, method = "POST", ...){
   if(dryRun){return(modify_url(url, path = path, query = body))}
-  WPTResponse <- POST(url = url, body = body, path = path, ...)
+  WPTResponse <- 
+    switch(method,
+           POST = POST(url = url, body = body, path = path, ...),
+           GET = GET(url = url, query = body, path = path, ...)
+    )
   stop_for_status(WPTResponse, paste(origin, "returned response:", 
                                      WPTResponse$status))
   WPTResponse                 
