@@ -1,3 +1,7 @@
+# 0.0.4
+* Add getHistory function, tests and docs
+* Add option to use GET in sendQuery internal function
+
 # 0.0.3
 * Add getTesters function, tests and docs
 * Add getTestStatus function, tests and docs

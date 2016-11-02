@@ -17,7 +17,8 @@ FALSE}
 \item{...}{Additonal function arguments}
 }
 \value{
-A list of previously run tests
+A tibble with "Date/Time", "Location", "Test ID", "URL","Label" 
+   of tests. NOTE: The results returned are limited on default server.
 }
 \description{
 Get history of previously run tests
