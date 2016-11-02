@@ -6,6 +6,11 @@ test_that("canGetLocations", {
   expect_s3_class(locs, "locations")
 })
 
+test_that("errorOnInvalidRequestIdGetLocations", {
+  WPT <- server()
+  expect_error(getLocations(WPT, 1), "requestId is not a string or null")
+})
+
 test_that("canGetErrorFromGetLocations", {
   WPT <- server()
   with_mock(
