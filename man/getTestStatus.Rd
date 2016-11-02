@@ -4,7 +4,7 @@
 \alias{getTestStatus}
 \title{check test status}
 \usage{
-getTestStatus(server, testId, requestId = NULL, ...)
+getTestStatus(server, testId, requestId = NULL, dryRun = FALSE, ...)
 }
 \arguments{
 \item{server}{A WebPagetest server}

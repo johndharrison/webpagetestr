@@ -4,7 +4,7 @@
 #' 
 #' @template server 
 #' @template requestId 
-#' @template dryrun 
+#' @template dryRun 
 #' @template ellipsis 
 #'
 #' @return A list of testers status and details
@@ -12,16 +12,16 @@
 #'
 #' @example /inst/examples/docs/getTesters.R
 
-getTesters <- function(server, requestId = NULL, dryrun = FALSE, ...){
-  checkArgs(server, requestId, dryrun)
+getTesters <- function(server, requestId = NULL, dryRun = FALSE, ...){
+  checkArgs(server, requestId, dryRun)
   body <- setNames(
     list(requestId, "json"),
     c(WPTOptions$requestId$api, "f")
   )
   res <- sendQuery(url = file.path(server$url, WPTPaths$testers), 
-                   body = body, origin = "getTesters", dryrun = dryrun,
+                   body = body, origin = "getTesters", dryRun = dryRun,
                    ...)
-  if(dryrun){return(res)}
+  if(dryRun){return(res)}
   testers <- content(res)
   if(identical(testers$statusCode, 200L)){
     `attr<-`(testers$data, "class", "testers")
