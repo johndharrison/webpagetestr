@@ -15,11 +15,11 @@
 getTestInfo <- function(server, testId , dryRun = FALSE, ...){
   checkArgs(server, testId, dryRun)
   body <- setNames(
-    list(testId, "json"),
-    c("test", "f")
+    list(testId, WPTfileNames$testInfo, "json"),
+    c("test", "file", "f")
   )
-  res <- sendQuery(url = file.path(server$url, WPTPaths$testStatus), 
-                   body = body, origin = "getTestStatus", dryRun = dryRun,
+  res <- sendQuery(url = file.path(server$url, WPTPaths$gzip), 
+                   body = body, origin = "getTestInfo", dryRun = dryRun,
                    ...)
   if(dryRun){return(res)}
   testinfo <- content(res)
