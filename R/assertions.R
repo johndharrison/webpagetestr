@@ -29,3 +29,19 @@ is_logical <- function(x){
 assertthat::on_failure(is_logical) <-  function(call, env) {
   paste0(sub("caArgs\\$", "", deparse(call$x)), " is not of type logical")
 }
+
+is_integer_or_null <- function(x) {
+  is.integer(x) || is.null(x)
+}
+
+assertthat::on_failure(is_integer_or_null) <-  function(call, env) {
+  paste0(sub("caArgs\\$", "", deparse(call$x)), " is not an integer or null")
+}
+
+is_integer <- function(x) {
+  is.integer(x)
+}
+
+assertthat::on_failure(is_integer) <-  function(call, env) {
+  paste0(sub("caArgs\\$", "", deparse(call$x)), " is not an integer")
+}
