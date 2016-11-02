@@ -24,7 +24,7 @@ getTestStatus <- function(server, testId ,requestId = NULL, dryRun = FALSE, ...)
                    ...)
   if(dryRun){return(res)}
   teststatus <- content(res)
-  if(identical(teststatus$statusCode, 200L)){
+  if(teststatus$statusCode <= 200L){
     `attr<-`(teststatus$data, "class", "teststatus")
   }else{
     stop("Server returned a statusCode = ", teststatus$statusCode,
