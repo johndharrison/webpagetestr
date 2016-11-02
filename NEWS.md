@@ -2,6 +2,7 @@
 * Add getTesters function, tests and docs
 * Add getTestStatus function, tests and docs
 * Add getTestInfo function, tests and docs
+* sendQuery internal function redefined to take path argument
 
 # 0.0.2
 * TRAVIS CI added and test coverage via codecov.io
