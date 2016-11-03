@@ -24,7 +24,7 @@ getResponseBody <- function(server, testId, run = 1L, repeatView = FALSE,
     list(testId ,"test"),
     list(run , "run"),
     list(false2Null(repeatView) , "cached"),
-    list(request , WPTOptions$request$api)
+    list(request , WPTOptions[["request"]][["api"]])
   )
   body <- setNames(lapply(body, "[[", 1), 
                    vapply(body, "[[", character(1), 2))
