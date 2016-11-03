@@ -18,7 +18,7 @@
 #' @example /inst/examples/docs/getResponseBody.R
 
 getResponseBody <- function(server, testId, run = 1L, repeatView = FALSE, 
-                             request = 1L, dryRun = FALSE, ...){
+                            request = 1L, dryRun = FALSE, ...){
   checkArgs(server, run, request, dryRun)
   body <- list(
     list(testId ,"test"),
@@ -28,9 +28,10 @@ getResponseBody <- function(server, testId, run = 1L, repeatView = FALSE,
   )
   body <- setNames(lapply(body, "[[", 1), 
                    vapply(body, "[[", character(1), 2))
-  res <- sendQuery(url = server$url, path = WPTPaths$responseBody, body = body, 
-                   origin = "getResponseBody", dryRun = dryRun,
-                   method = "GET", ...)
+  res <- 
+    sendQuery(url = server[["url"]], path = WPTPaths[["responseBody"]], 
+              body = body, origin = "getResponseBody", dryRun = dryRun,
+              method = "GET", ...)
   if(dryRun){return(res)}
   ResponseBody <- content(res)
   ResponseBody
