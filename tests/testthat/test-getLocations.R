@@ -15,7 +15,7 @@ test_that("canGetErrorFromGetLocations", {
   WPT <- server()
   with_mock(
     `httr::POST` = function(...){
-      list(statusCode = 400,
+      list(statusCode = 400L,
            statusText = "Some location error")},
     `httr::stop_for_status` = function(...){}, 
     `httr::content` = function(x){x},
