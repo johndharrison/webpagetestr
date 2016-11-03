@@ -31,7 +31,7 @@ WPTfileNames <- list(pageSpeed = "pagespeed.txt",
                      screenshotDocumentComplete = "screen_doc.jpg", 
                      screenshotFullResolution = "screen.png", 
                      cached = "_Cached"
-                     )
+)
 
 WPTOptions <- 
   list(server = 
@@ -723,7 +723,7 @@ checkArgs <- function(...){
     assert_that(is_logical(caArgs$dryRun))
   }
   if(!is.null(caArgs$testId)){assert_that(is_string(caArgs$testId))}
-
+  
   if(!is.null(caArgs$days)){
     assert_that(is_integer(caArgs$days))
   }
@@ -771,3 +771,26 @@ sendQuery <- function(url, path, body, origin, dryRun, method = "POST", ...){
 }
 
 false2Null <- function(x) if(x){as.integer(x)}else{NULL}
+
+parseRequestData <- function(txt){
+  dumRead <- readr::read_tsv(txt, col_names = FALSE)
+  colNames <- 
+    c('date', 'time', 'step', 'ip_addr', 'method', 'host', 'url', 'responseCode', 
+      'load_ms',
+      'ttfb_ms', 'load_start', 'bytesOut', 'bytesIn', 'objectSize', '', '',
+      'expires', 'cacheControl', 'contentType', 'contentEncoding', 'type',
+      'socket', '', '', '', '', '', '', '', '', '', '', '', '', '',
+      'score_cache', 'score_cdn', 'score_gzip', 'score_cookies',
+      'score_keep-alive', '', 'score_minify', 'score_combine', 
+      'score_compress',
+      'score_etags', '', 'is_secure', 'dns_ms', 'connect_ms', 'ssl_ms',
+      'gzip_total', 'gzip_save', 'minify_total', 'minify_save', 
+      'image_total',
+      'image_save', 'cache_time', '', '', '', 'cdn_provider', 'dns_start',
+      'dns_end', 'connect_start', 'connect_end', 'ssl_start', 'ssl_end',
+      'initiator', 'initiator_line', 'initiator_column', 
+      rep("", dim(dumRead)[2] - length(colNames)))
+  colNames[colNames == ""] <- 
+    paste0("V", seq_along(colNames[colNames == ""]))
+  readr::read_tsv(txt, col_names = colNames)
+}
