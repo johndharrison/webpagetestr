@@ -713,50 +713,50 @@ WPTOptions <-
 checkArgs <- function(...){
   aNames <- as.character(as.list(substitute(list(...)))[-1L])
   caArgs <- setNames(list(...), aNames)
-  if(!is.null(caArgs$server)){
-    assert_that(is_server(caArgs$server))
+  if(!is.null(caArgs[["server"]])){
+    assert_that(is_server(caArgs[["server"]]))
   }
-  if(!is.null(caArgs$requestId)){
-    assert_that(is_string_or_null(caArgs$requestId))
+  if(!is.null(caArgs[["requestId"]])){
+    assert_that(is_string_or_null(caArgs[["requestId"]]))
   }
-  if(!is.null(caArgs$dryRun)){
-    assert_that(is_logical(caArgs$dryRun))
+  if(!is.null(caArgs[["dryRun"]])){
+    assert_that(is_logical(caArgs[["dryRun"]]))
   }
-  if(!is.null(caArgs$testId)){assert_that(is_string(caArgs$testId))}
+  if(!is.null(caArgs[["testId"]])){assert_that(is_string(caArgs[["testId"]]))}
   
-  if(!is.null(caArgs$days)){
-    assert_that(is_integer(caArgs$days))
+  if(!is.null(caArgs[["days"]])){
+    assert_that(is_integer(caArgs[["days"]]))
   }
-  if(!is.null(caArgs$filter)){
-    assert_that(is_string_or_null(caArgs$filter))
-  }
-  
-  if(!is.null(caArgs$breakDown)){
-    assert_that(is_logical(caArgs$breakDown))
+  if(!is.null(caArgs[["filter"]])){
+    assert_that(is_string_or_null(caArgs[["filter"]]))
   }
   
-  if(!is.null(caArgs$domains)){
-    assert_that(is_logical(caArgs$domains))
+  if(!is.null(caArgs[["breakDown"]])){
+    assert_that(is_logical(caArgs[["breakDown"]]))
   }
   
-  if(!is.null(caArgs$pageSpeed)){
-    assert_that(is_logical(caArgs$pageSpeed))
+  if(!is.null(caArgs[["domains"]])){
+    assert_that(is_logical(caArgs[["domains"]]))
   }
   
-  if(!is.null(caArgs$requests)){
-    assert_that(is_logical(caArgs$requests))
+  if(!is.null(caArgs[["pageSpeed"]])){
+    assert_that(is_logical(caArgs[["pageSpeed"]]))
   }
   
-  if(!is.null(caArgs$medianMetric)){
-    assert_that(is_string_or_null(caArgs$medianMetric))
+  if(!is.null(caArgs[["requests"]])){
+    assert_that(is_logical(caArgs[["requests"]]))
   }
   
-  if(!is.null(caArgs$medianRun)){
-    assert_that(is_string_or_null(caArgs$medianRun))
+  if(!is.null(caArgs[["medianMetric"]])){
+    assert_that(is_string_or_null(caArgs[["medianMetric"]]))
   }
   
-  if(!is.null(caArgs$request)){
-    assert_that(is_integer(caArgs$request))
+  if(!is.null(caArgs[["medianRun"]])){
+    assert_that(is_string_or_null(caArgs[["medianRun"]]))
+  }
+  
+  if(!is.null(caArgs[["request"]])){
+    assert_that(is_integer(caArgs[["request"]]))
   }
   
   
