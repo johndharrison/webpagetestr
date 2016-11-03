@@ -2,8 +2,8 @@ sudo: required
 language: R
 cache: packages
 r_github_packages:
-- johndharrison/webpagetestr
 - johndharrison/HARtools
+- johndharrison/webpagetestr
 env:
   matrix:
   - NOT_CRAN=true
