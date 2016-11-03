@@ -3,6 +3,7 @@
 export(getHARData)
 export(getHistory)
 export(getLocations)
+export(getPageSpeedData)
 export(getTestInfo)
 export(getTestResults)
 export(getTestStatus)
