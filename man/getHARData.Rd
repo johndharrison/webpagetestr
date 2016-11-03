@@ -26,7 +26,7 @@ get the HTTP Archive (HAR) from test
 \dontrun{
   WPT <- server()
   history <- getHistory(WPT, filter = "London")
-  tID <- as.character(out[dim(out)[1], "Test ID"])
+  tID <- as.character(history[dim(history)[1], "Test ID"])
   har <- getHARData(WPT, tID)
 }
 }
