@@ -14,10 +14,12 @@
 
 getHARData <- function(server, testId , dryRun = FALSE, ...){
   checkArgs(server, testId, dryRun)
-  body <- setNames(
-    list(testId, "json"),
-    c("test", "f")
+  body <- list(
+    list(testId , "test"),
+    list("json" , "f")
   )
+  body <- setNames(lapply(body, "[[", 1), 
+                   vapply(body, "[[", character(1), 2))   
   res <- sendQuery(url = server$url, path = WPTPaths$har, 
                    body = body, origin = "getHARData", dryRun = dryRun,
                    ...)

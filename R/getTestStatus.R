@@ -15,10 +15,13 @@
 
 getTestStatus <- function(server, testId ,requestId = NULL, dryRun = FALSE, ...){
   checkArgs(server, testId, requestId, dryRun)
-  body <- setNames(
-    list(testId, requestId, "json"),
-    c("test", WPTOptions$requestId$api, "f")
+  body <- list(
+    list(testId , "test"),
+    list(requestId , WPTOptions$requestId$api),
+    list("json" , "f")
   )
+  body <- setNames(lapply(body, "[[", 1), 
+                   vapply(body, "[[", character(1), 2))   
   res <- sendQuery(url = server$url, path = WPTPaths$testStatus, 
                    body = body, origin = "getTestStatus", dryRun = dryRun,
                    ...)

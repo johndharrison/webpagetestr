@@ -14,10 +14,13 @@
 
 getTestInfo <- function(server, testId , dryRun = FALSE, ...){
   checkArgs(server, testId, dryRun)
-  body <- setNames(
-    list(testId, WPTfileNames$testInfo, "json"),
-    c("test", "file", "f")
+  body <- list(
+    list(testId , "test"),
+    list(WPTfileNames$testInfo , "file"),
+    list("json" , "f")
   )
+  body <- setNames(lapply(body, "[[", 1), 
+                   vapply(body, "[[", character(1), 2))   
   res <- sendQuery(url = server$url, path = WPTPaths$gzip, 
                    body = body, origin = "getTestInfo", dryRun = dryRun,
                    ...)

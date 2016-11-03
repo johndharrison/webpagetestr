@@ -14,10 +14,12 @@
 
 getLocations <- function(server, requestId = NULL, dryRun = FALSE, ...){
   checkArgs(server, requestId, dryRun)
-  body <- setNames(
-    list(requestId, "json"),
-    c(WPTOptions$requestId$api, "f")
+  body <- list(
+    list(requestId , WPTOptions$requestId$api),
+    list("json" , "f")
   )
+  body <- setNames(lapply(body, "[[", 1), 
+                   vapply(body, "[[", character(1), 2))   
   res <- sendQuery(url = server$url, path = WPTPaths$locations, 
                    body = body, origin = "getLocations", dryRun = dryRun,
                    ...)

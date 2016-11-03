@@ -16,11 +16,14 @@
 
 getHistory <- function(server, days = 1L, filter = NULL, dryRun = FALSE, ...){
   checkArgs(server, days, dryRun)
-  body <- setNames(
-    list(days, "csv", "on", filter),
-    c("days", "f", "all", "filter")
+  body <- list(
+    list(days , "days"),
+    list("csv" , "f"),
+    list("on" , "all"),
+    list(filter , "filter")
   )
-  body[["filter"]]
+  body <- setNames(lapply(body, "[[", 1), 
+                   vapply(body, "[[", character(1), 2))   
   res <- sendQuery(url = server$url, path = WPTPaths$history, 
                    body = body, origin = "getHistory", dryRun = dryRun,
                    method = "GET", ...)
