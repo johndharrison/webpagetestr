@@ -25,9 +25,9 @@ getGoogleCsiData <- function(server, testId, run = 1L, repeatView = FALSE,
   )
   body <- setNames(lapply(body, "[[", 1), 
                    vapply(body, "[[", character(1), 2))
-  res <- sendQuery(url = server$url, path = WPTPaths$googleCsi, body = body, 
-                   origin = "getGoogleCsiData", dryRun = dryRun,
-                   method = "GET", ...)
+  res <- sendQuery(url = server[["url"]], path = WPTPaths[["googleCsi"]], 
+                   body = body, origin = "getGoogleCsiData", 
+                   dryRun = dryRun, method = "GET", ...)
   if(dryRun){return(res)}
   GoogleCsi <- content(res)
   GoogleCsi

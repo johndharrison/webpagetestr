@@ -770,7 +770,7 @@ sendQuery <- function(url, path, body, origin, dryRun, method = "POST", ...){
            GET = GET(url = url, query = body, path = path, ...)
     )
   stop_for_status(WPTResponse, paste(origin, "returned response:", 
-                                     WPTResponse[["status"]]))
+                                     WPTResponse[["status_code"]]))
   WPTResponse                 
 }
 
