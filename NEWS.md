@@ -1,3 +1,9 @@
+# 0.0.5
+* Add getUtilizationData function, tests and docs
+* Add getRequestData function, tests and docs
+* Add getTimelineData function, tests and docs
+* Add getNetLogData function, tests and docs
+
 # 0.0.4
 * Add getHistory function, tests and docs
 * Add option to use GET in sendQuery internal function

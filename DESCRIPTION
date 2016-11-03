@@ -1,7 +1,7 @@
 Package: webpagetestr
 Type: Package
 Title: `WebPageTest` API wrapper for R
-Version: 0.0.4
+Version: 0.0.5
 Authors@R: c( person("John", "Harrison", , "johndharrison0@gmail.com",
     role = c("aut", "cre")))
 Description: Interact with <http://www.webpagetest.org/> via the 
