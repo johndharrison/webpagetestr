@@ -17,7 +17,8 @@ test_that("canGetTestResultsDryRun", {
                    dryRun = TRUE)
   expect_identical(
     testresults, 
-    paste0(WPT$url, "/jsonResult.php?test=someId&breakdown=1&domains=1",
+    paste0(WPT[["url"]], 
+           "/jsonResult.php?test=someId&breakdown=1&domains=1",
            "&pagespeed=1&requests=1&", 
            "medianMetric=SpeedIndex&medianRun=fastest&f=json")
   )

@@ -24,9 +24,9 @@ getTimelineData <- function(server, testId, run = 1L, repeatView = FALSE,
   )
   body <- setNames(lapply(body, "[[", 1), 
                    vapply(body, "[[", character(1), 2))
-  res <- sendQuery(url = server$url, path = WPTPaths$timeline, body = body, 
-                   origin = "getTimelineData", dryRun = dryRun,
-                   method = "GET", ...)
+  res <- sendQuery(url = server[["url"]], path = WPTPaths[["timeline"]], 
+                   body = body, origin = "getTimelineData", 
+                   dryRun = dryRun, method = "GET", ...)
   if(dryRun){return(res)}
   timelinedata <- content(res)
   timelinedata

@@ -28,5 +28,6 @@ test_that("canGetErrorFromGetLocations", {
 test_that("canDryRunGetLocations", {
   WPT <- server()
   dr <- getLocations(WPT, "wwww", dryRun = TRUE)
-  expect_identical(dr, paste0(WPT$url, "/getLocations.php?r=wwww&f=json"))
+  expect_identical(dr, paste0(WPT[["url"]], 
+                              "/getLocations.php?r=wwww&f=json"))
 })

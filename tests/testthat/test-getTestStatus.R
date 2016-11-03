@@ -6,7 +6,7 @@ test_that("canGetTestStatus", {
                            requestId = "areqid", dryRun = TRUE)  
   expect_identical(
     status, 
-    paste0(WPT$url, "/testStatus.php?test=atestid&r=areqid&f=json")
+    paste0(WPT[["url"]], "/testStatus.php?test=atestid&r=areqid&f=json")
   )
 })
 
@@ -23,6 +23,6 @@ test_that("canGetTestStatusUsingCurrentTestId", {
   history <- getHistory(WPT)
   tID <- history[["Test ID"]][1]
   status <- getTestStatus(WPT, testId = tID, requestId = "areqid")  
-  expect_identical(status$testId, tID)
+  expect_identical(status[["testId"]], tID)
 })
 
