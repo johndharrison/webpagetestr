@@ -14,3 +14,9 @@ test_that("canGetHistory", {
   history <- getHistory(WPT) 
   expect_s3_class(history, "tbl_df")
 })
+
+test_that("canGetHistoryFilter", {
+  WPT <- server()
+  history <- getHistory(WPT, days = 10L, filter = "google.com") 
+  expect_s3_class(history, "tbl_df")
+})
