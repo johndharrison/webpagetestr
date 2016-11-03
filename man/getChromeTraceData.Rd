@@ -24,8 +24,8 @@ FALSE}
 \item{...}{Additonal function arguments}
 }
 \value{
-A list containing the Chrome Trace data. If no net log data is 
-   available for the test a HTTP 404 error is returned.
+A list containing the Chrome Trace data. If no Chrome Trace 
+   data is available for the test a HTTP 404 error is returned.
 }
 \description{
 get the Chrome Trace data (if available) from test

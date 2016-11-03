@@ -9,8 +9,8 @@
 #' @template  dryRun 
 #' @template ellipsis
 #'
-#' @return A list containing the Chrome Trace data. If no net log data is 
-#'    available for the test a HTTP 404 error is returned.
+#' @return A list containing the Chrome Trace data. If no Chrome Trace 
+#'    data is available for the test a HTTP 404 error is returned.
 #' @export
 #'
 #' @example /inst/examples/docs/getChromeTraceData.R
