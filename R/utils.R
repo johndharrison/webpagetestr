@@ -755,6 +755,10 @@ checkArgs <- function(...){
     assert_that(is_string_or_null(caArgs$medianRun))
   }
   
+  if(!is.null(caArgs$request)){
+    assert_that(is_integer(caArgs$request))
+  }
+  
   
 }
 
