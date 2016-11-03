@@ -1,3 +1,9 @@
+# 0.0.6
+* Add getChromeTraceData function, tests and docs
+* Add getConsoleLogData function, tests and docs
+* Add getGoogleCsiData function, tests and docs
+* Add getResponseBody function, tests and docs
+
 # 0.0.5
 * Add getUtilizationData function, tests and docs
 * Add getRequestData function, tests and docs
