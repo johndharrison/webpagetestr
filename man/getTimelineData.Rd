@@ -24,7 +24,7 @@ FALSE}
 \item{...}{Additonal function arguments}
 }
 \value{
-A tibble containing the request data
+A list containing the timeline
 }
 \description{
 get the Chrome Developer Tools Timeline data (if available) from test
@@ -34,7 +34,7 @@ get the Chrome Developer Tools Timeline data (if available) from test
   WPT <- server()
   history <- getHistory(WPT, filter = "London")
   tID <- as.character(history[dim(history)[1], "Test ID"])
-  utilizationData <- getUtilizationData(WPT, tID)
+  timelineData <- getTimelineData(WPT, tID)
 }
 }
 

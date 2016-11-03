@@ -18,21 +18,6 @@ test_that("canGetErrorFromgetTimelineData", {
   )
 })
 
-test_that("canGetTestInfoViaMock", {
-  WPT <- server()
-  with_mock(
-    `httr::POST` = function(...){
-      list(statusCode = 200L,
-           statusText = "Some test info message",
-           data = list(hello = "world"))},
-    `httr::stop_for_status` = function(...){}, 
-    `httr::content` = function(x){x},
-    expect_s3_class(
-      getTestInfo(WPT, testId = "atestid"), 
-      "testinfo"   
-    )
-  )
-})
 test_that("canGetTimelineDataViaMock", {
   WPT <- server()
   with_mock(
