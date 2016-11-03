@@ -20,7 +20,7 @@ getHARData <- function(server, testId , dryRun = FALSE, ...){
   )
   body <- setNames(lapply(body, "[[", 1), 
                    vapply(body, "[[", character(1), 2))   
-  res <- sendQuery(url = server$url, path = WPTPaths$har, 
+  res <- sendQuery(url = server[["url"]], path = WPTPaths$har, 
                    body = body, origin = "getHARData", dryRun = dryRun,
                    ...)
   if(dryRun){return(res)}

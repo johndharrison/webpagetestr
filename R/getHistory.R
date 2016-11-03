@@ -24,7 +24,7 @@ getHistory <- function(server, days = 1L, filter = NULL, dryRun = FALSE, ...){
   )
   body <- setNames(lapply(body, "[[", 1), 
                    vapply(body, "[[", character(1), 2))   
-  res <- sendQuery(url = server$url, path = WPTPaths$history, 
+  res <- sendQuery(url = server[["url"]], path = WPTPaths$history, 
                    body = body, origin = "getHistory", dryRun = dryRun,
                    method = "GET", ...)
   if(dryRun){return(res)}
