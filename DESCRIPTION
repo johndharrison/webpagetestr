@@ -15,7 +15,8 @@ Description: Interact with <http://www.webpagetest.org/> via the
 Imports:
     httr,
     assertthat,
-    readr
+    readr,
+    HARtools
 Suggests:
     testthat,
     covr
