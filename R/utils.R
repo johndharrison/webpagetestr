@@ -775,8 +775,8 @@ false2Null <- function(x) if(x){as.integer(x)}else{NULL}
 parseRequestData <- function(txt){
   dumRead <- readr::read_tsv(txt, col_names = FALSE)
   colNames <- 
-    c('date', 'time', 'step', 'ip_addr', 'method', 'host', 'url', 'responseCode', 
-      'load_ms',
+    c('date', 'time', 'step', 'ip_addr', 'method', 'host', 'url', 
+      'responseCode', 'load_ms',
       'ttfb_ms', 'load_start', 'bytesOut', 'bytesIn', 'objectSize', '', '',
       'expires', 'cacheControl', 'contentType', 'contentEncoding', 'type',
       'socket', '', '', '', '', '', '', '', '', '', '', '', '', '',
@@ -788,8 +788,8 @@ parseRequestData <- function(txt){
       'image_total',
       'image_save', 'cache_time', '', '', '', 'cdn_provider', 'dns_start',
       'dns_end', 'connect_start', 'connect_end', 'ssl_start', 'ssl_end',
-      'initiator', 'initiator_line', 'initiator_column', 
-      rep("", dim(dumRead)[2] - length(colNames)))
+      'initiator', 'initiator_line', 'initiator_column') 
+  colNames <- c(colNames, rep("", dim(dumRead)[2] - length(colNames)))
   colNames[colNames == ""] <- 
     paste0("V", seq_along(colNames[colNames == ""]))
   readr::read_tsv(txt, col_names = colNames)

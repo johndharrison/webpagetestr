@@ -19,7 +19,7 @@ test_that("canGetErrorFromgetRequestData", {
   )
 })
 
-test_that("cangetRequestData", {
+test_that("canGetRequestData", {
   WPT <- server()
   history <- getHistory(WPT, filter = "London")
   tID <- as.character(history[dim(history)[1], "Test ID"])
