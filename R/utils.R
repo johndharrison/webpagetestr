@@ -731,6 +731,31 @@ checkArgs <- function(...){
     assert_that(is_string_or_null(caArgs$filter))
   }
   
+  if(!is.null(caArgs$breakDown)){
+    assert_that(is_logical(caArgs$breakDown))
+  }
+  
+  if(!is.null(caArgs$domains)){
+    assert_that(is_logical(caArgs$domains))
+  }
+  
+  if(!is.null(caArgs$pageSpeed)){
+    assert_that(is_logical(caArgs$pageSpeed))
+  }
+  
+  if(!is.null(caArgs$requests)){
+    assert_that(is_logical(caArgs$requests))
+  }
+  
+  if(!is.null(caArgs$medianMetric)){
+    assert_that(is_string_or_null(caArgs$medianMetric))
+  }
+  
+  if(!is.null(caArgs$medianRun)){
+    assert_that(is_string_or_null(caArgs$medianRun))
+  }
+  
+  
 }
 
 sendQuery <- function(url, path, body, origin, dryRun, method = "POST", ...){
@@ -745,3 +770,4 @@ sendQuery <- function(url, path, body, origin, dryRun, method = "POST", ...){
   WPTResponse                 
 }
 
+false2Null <- function(x) if(x){as.integer(x)}else{NULL}
