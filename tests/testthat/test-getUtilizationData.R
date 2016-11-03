@@ -6,7 +6,7 @@ test_that("cangetUtilizationDataDryRun", {
                              repeatView = TRUE, dryRun = TRUE)  
   expect_identical(
     utilizationData, 
-    paste0(WPT$url, 
+    paste0(WPT[["url"]], 
            "/getgzip.php?test=atestid&file=2_Cached_progress.csv")
   )
 })

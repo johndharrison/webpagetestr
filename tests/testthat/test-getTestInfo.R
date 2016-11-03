@@ -5,7 +5,7 @@ test_that("canGetTestInfo", {
   testinfo <- getTestInfo(WPT, testId = "atestid", dryRun = TRUE)  
   expect_identical(
     testinfo, 
-    paste0(WPT$url, "/getgzip.php?test=atestid&file=testinfo.json&f=json")
+    paste0(WPT[["url"]], "/getgzip.php?test=atestid&file=testinfo.json&f=json")
   )
 })
 

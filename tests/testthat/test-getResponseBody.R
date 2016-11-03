@@ -6,7 +6,7 @@ test_that("canGetResponseBodyDryRun", {
                                   repeatView = TRUE, dryRun = TRUE)  
   expect_identical(
     ResponseBody, 
-    paste0(WPT$url, 
+    paste0(WPT[["url"]], 
            "/response_body.php?test=atestid&run=2&cached=1&request=1")
   )
 })

@@ -6,7 +6,7 @@ test_that("canGetChromeTraceDataDryRun", {
                                   repeatView = TRUE, dryRun = TRUE)  
   expect_identical(
     ChromeTraceData, 
-    paste0(WPT$url, "/getgzip.php?test=atestid&file=2_Cached_trace.json")
+    paste0(WPT[["url"]], "/getgzip.php?test=atestid&file=2_Cached_trace.json")
   )
 })
 

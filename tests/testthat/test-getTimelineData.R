@@ -6,7 +6,7 @@ test_that("canGetTimelineDataDryRun", {
                                   repeatView = TRUE, dryRun = TRUE)  
   expect_identical(
     timelineData, 
-    paste0(WPT$url, "/getTimeline.php?test=atestid&run=2&cached=1")
+    paste0(WPT[["url"]], "/getTimeline.php?test=atestid&run=2&cached=1")
   )
 })
 

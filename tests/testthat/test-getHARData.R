@@ -13,6 +13,6 @@ test_that("canGetHARDataDryRun", {
   har <- getHARData(WPT, "someID", dryRun = TRUE)
   expect_identical(
     har, 
-    paste0(WPT$url, "/export.php?test=someID&f=json")
+    paste0(WPT[["url"]], "/export.php?test=someID&f=json")
   )
 })

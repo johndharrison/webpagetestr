@@ -6,7 +6,7 @@ test_that("canGetPageSpeedData", {
                              repeatView = TRUE, dryRun = TRUE)  
   expect_identical(
     pagespeed, 
-    paste0(WPT$url, 
+    paste0(WPT[["url"]], 
            "/getgzip.php?test=atestid&file=2_Cached_pagespeed.txt")
   )
 })

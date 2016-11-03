@@ -5,7 +5,7 @@ test_that("canGetHistoryDryRun", {
   history <- getHistory(WPT, dryRun = TRUE)  
   expect_identical(
     history, 
-    paste0(WPT$url, "/testlog.php?days=1&f=csv&all=on")
+    paste0(WPT[["url"]], "/testlog.php?days=1&f=csv&all=on")
   )
 })
 

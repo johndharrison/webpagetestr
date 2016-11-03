@@ -6,7 +6,7 @@ test_that("canGetGoogleCsiDataDryRun", {
                                   repeatView = TRUE, dryRun = TRUE)  
   expect_identical(
     GoogleCsiData, 
-    paste0(WPT$url, "/google/google_csi.php?test=atestid&run=2&cached=1")
+    paste0(WPT[["url"]], "/google/google_csi.php?test=atestid&run=2&cached=1")
   )
 })
 

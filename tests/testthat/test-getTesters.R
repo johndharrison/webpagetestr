@@ -23,5 +23,5 @@ test_that("canGetErrorFromGetTesters", {
 test_that("canDryRunGetTesters", {
   WPT <- server()
   dr <- getTesters(WPT, "wwww", dryRun = TRUE)
-  expect_identical(dr, paste0(WPT$url, "/getTesters.php?r=wwww&f=json"))
+  expect_identical(dr, paste0(WPT[["url"]], "/getTesters.php?r=wwww&f=json"))
 })

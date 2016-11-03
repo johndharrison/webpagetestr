@@ -6,7 +6,7 @@ test_that("canGetNetLogDataDryRun", {
                                   repeatView = TRUE, dryRun = TRUE)  
   expect_identical(
     NetLogData, 
-    paste0(WPT$url, "/getgzip.php?test=atestid&file=2_Cached_netlog.txt")
+    paste0(WPT[["url"]], "/getgzip.php?test=atestid&file=2_Cached_netlog.txt")
   )
 })
 

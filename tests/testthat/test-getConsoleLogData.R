@@ -6,7 +6,7 @@ test_that("canGetConsoleLogDataDryRun", {
                                   repeatView = TRUE, dryRun = TRUE)  
   expect_identical(
     ConsoleLogData, 
-    paste0(WPT$url, 
+    paste0(WPT[["url"]], 
            "/getgzip.php?test=atestid&file=2_Cached_console_log.json")
   )
 })

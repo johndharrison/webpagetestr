@@ -6,7 +6,7 @@ test_that("cangetRequestDataDryRun", {
                              repeatView = TRUE, dryRun = TRUE)  
   expect_identical(
     requestData, 
-    paste0(WPT$url, 
+    paste0(WPT[["url"]], 
            "/getgzip.php?test=atestid&file=2_Cached_IEWTR.txt")
   )
 })
