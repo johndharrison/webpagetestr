@@ -24,7 +24,7 @@ FALSE}
 \item{...}{Additonal function arguments}
 }
 \value{
-Get the Google Page Speed results (if available) from test.
+A list of Google Page Speed results (if available) from test.
    It is unlikely pagespeed data is available for recent tests.
    See \url{https://github.com/WPO-Foundation/webpagetest/issues/669}.
    If the Page Speed data is not available a HTTP 404 not found error
