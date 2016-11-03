@@ -24,7 +24,8 @@ FALSE}
 \item{...}{Additonal function arguments}
 }
 \value{
-A list containing the Net Log data
+A list containing the Net Log data If no net log data is 
+   available for the test a HTTP 404 error is returned.
 }
 \description{
 get the Chrome Developer Tools Net log data (if available) from test

@@ -31,7 +31,7 @@ getNetLogData <- function(server, testId, run = 1L, repeatView = FALSE,
                    origin = "getNetLogData", dryRun = dryRun,
                    method = "GET", ...)
   if(dryRun){return(res)}
-  timelinedata <- 
+  NetLogData <- 
     content(res, type = "application/json", encoding = "UTF-8")
-  timelinedata
+  NetLogData
 } 
