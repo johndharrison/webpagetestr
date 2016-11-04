@@ -767,10 +767,10 @@ checkArgs <- function(...){
     assert_that(is_logical(caArgs[["thumbnail"]]))
   }
   
-  if(!is.null(caArgs[["dataURI"]])){
-    assert_that(is_logical(caArgs[["dataURI"]]))
-  }
-  
+  # if(!is.null(caArgs[["dataURI"]])){
+  #   assert_that(is_logical(caArgs[["dataURI"]]))
+  # }
+  # 
   if(!is.null(caArgs[["chartType"]])){
     assert_that(is_string_or_null(caArgs[["chartType"]]))
   }
