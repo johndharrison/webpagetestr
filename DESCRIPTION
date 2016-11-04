@@ -19,8 +19,6 @@ Imports:
     HARtools
 Suggests:
     testthat,
-    covr,
-    magick,
-    png
+    covr
 License: MIT + file LICENSE
 RoxygenNote: 5.0.1
