@@ -759,6 +759,53 @@ checkArgs <- function(...){
     assert_that(is_integer(caArgs[["request"]]))
   }
   
+  if(!is.null(caArgs[["run"]])){
+    assert_that(is_integer_or_null(caArgs[["run"]]))
+  }
+  
+  if(!is.null(caArgs[["thumbnail"]])){
+    assert_that(is_logical(caArgs[["thumbnail"]]))
+  }
+  
+  if(!is.null(caArgs[["dataURI"]])){
+    assert_that(is_logical(caArgs[["dataURI"]]))
+  }
+  
+  if(!is.null(caArgs[["chartType"]])){
+    assert_that(is_string_or_null(caArgs[["chartType"]]))
+  }
+  
+  if(!is.null(caArgs[["colorByMime"]])){
+    assert_that(is_logical(caArgs[["colorByMime"]]))
+  }
+  
+  if(!is.null(caArgs[["chartWidth"]])){
+    assert_that(is_integer_or_null(caArgs[["chartWidth"]]))
+  }
+  
+  if(!is.null(caArgs[["maxTime"]])){
+    assert_that(is_integer_or_null(caArgs[["maxTime"]]))
+  }
+  
+  if(!is.null(caArgs[["wrequests"]])){
+    assert_that(is_string_or_null(caArgs[["wrequests"]]))
+  }
+  
+  if(!is.null(caArgs[["noCPU"]])){
+    assert_that(is_logical(caArgs[["noCPU"]]))
+  }
+  
+  if(!is.null(caArgs[["noBandwidth"]])){
+    assert_that(is_logical(caArgs[["noBandwidth"]]))
+  }
+  
+  if(!is.null(caArgs[["noEllipsis"]])){
+    assert_that(is_logical(caArgs[["noEllipsis"]]))
+  }
+  
+  if(!is.null(caArgs[["noLabels"]])){
+    assert_that(is_logical(caArgs[["noLabels"]]))
+  }
   
 }
 
@@ -775,6 +822,7 @@ sendQuery <- function(url, path, body, origin, dryRun, method = "POST", ...){
 }
 
 false2Null <- function(x) if(x){as.integer(x)}else{NULL}
+true2Null <- function(x) if(!x){as.integer(x)}else{NULL}
 
 parseRequestData <- function(txt){
   dumRead <- readr::read_tsv(txt, col_names = FALSE)
