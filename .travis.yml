@@ -10,6 +10,7 @@ addons:
       - libmagick++-dev
 r_packages:
 - magick
+- png
 env:
   matrix:
   - NOT_CRAN=true
