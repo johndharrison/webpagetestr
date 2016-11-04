@@ -22,9 +22,11 @@ test_that("canSaveWaterfall", {
   tID <- as.character(history[dim(history)[1], "Test ID"])
   tmpFile <- tempfile(fileext = ".png")
   img <- getWaterfallImage(WPT, tID, thumbnail = TRUE, file = tmpFile)
-  img <- magick::image_read(tmpFile)
-  imgInfo <- magick::image_info(img)
-  expect_identical(imgInfo[["format"]], "PNG")
+  # png 8 bit sig
+  # https://en.wikipedia.org/wiki/Portable_Network_Graphics#File_header
+  pngSig <- as.raw(c(0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a))
+  imgSig <- readBin(tmpFile, "raw", n = 8)
+  expect_identical(imgSig, pngSig)
 })
 
 test_that("canGetWaterfallImageDryRun", {
