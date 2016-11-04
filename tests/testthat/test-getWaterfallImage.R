@@ -23,7 +23,7 @@ test_that("canSaveWaterfall", {
   tmpFile <- tempfile(fileext = ".png")
   img <- getWaterfallImage(WPT, tID, thumbnail = TRUE, file = tmpFile)
   img <- magick::image_read(tmpFile)
-  imgInfo <- image_info(img)
+  imgInfo <- magick::image_info(img)
   expect_identical(imgInfo[["format"]], "PNG")
 })
 
