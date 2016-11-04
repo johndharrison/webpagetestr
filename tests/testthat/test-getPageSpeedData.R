@@ -23,6 +23,6 @@ test_that("canGetPageSpeedDataUsingOldTestId", {
   WPT <- server()
   tID <- "121216_XZ_AA"
   pagespeed <- getPageSpeedData(WPT, testId = tID)  
-  expect_false(is.null(pagespeed$score))
+  expect_false(is.null(pagespeed[["score"]]))
 })
 
