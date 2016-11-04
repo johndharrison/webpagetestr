@@ -15,7 +15,7 @@
 #' @example /inst/examples/docs/getHistory.R
 
 getHistory <- function(server, days = 1L, filter = NULL, dryRun = FALSE, ...){
-  checkArgs(server, days, dryRun)
+  checkArgs(server, days, filter, dryRun)
   body <- list(
     list(days , "days"),
     list("csv" , "f"),
