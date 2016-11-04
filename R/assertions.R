@@ -47,3 +47,14 @@ is_integer <- function(x) {
 assertthat::on_failure(is_integer) <-  function(call, env) {
   paste0(sub(caArgsReg, "\\1", deparse(call[["x"]])), " is not an integer")
 }
+
+is_writeable_path <- function(x){
+  is_string(x) && file.access(dirname(x), 2) == 0L &&
+    dir.exists(dirname(x))
+}
+
+assertthat::on_failure(is_writeable_path) <-  function(call, env) {
+  paste0(sub(caArgsReg, "\\1", deparse(call[["x"]])), 
+         " is not a writeable file/path")
+}
+
