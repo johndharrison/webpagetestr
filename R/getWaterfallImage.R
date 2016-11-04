@@ -9,7 +9,6 @@
 #' @template run 
 #' @template repeatView 
 #' @template thumbnail
-##' @template dataURI
 #' @template chartType
 #' @template colorByMime
 #' @template chartWidth

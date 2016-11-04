@@ -56,9 +56,6 @@ FALSE.}
 FALSE}
 
 \item{...}{Additonal function arguments}
-
-\item{dataURI}{logical. Return the base64 string representation 
-(inline) of actual image. Defaults to FALSE.}
 }
 \value{
 If a file argument is given the PNG returned is written to 
