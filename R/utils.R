@@ -807,6 +807,18 @@ checkArgs <- function(...){
     assert_that(is_logical(caArgs[["noLabels"]]))
   }
   
+  if(!is.null(caArgs[["fullResolution"]])){
+    assert_that(is_logical(caArgs[["fullResolution"]]))
+  }
+  
+  if(!is.null(caArgs[["startRender"]])){
+    assert_that(is_logical(caArgs[["startRender"]]))
+  }
+  
+  if(!is.null(caArgs[["documentComplete"]])){
+    assert_that(is_logical(caArgs[["documentComplete"]]))
+  }
+  
 }
 
 sendQuery <- function(url, path, body, origin, dryRun, method = "POST", ...){
