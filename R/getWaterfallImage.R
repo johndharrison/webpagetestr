@@ -40,7 +40,9 @@ getWaterfallImage <- function(server, testId, run = 1L, file = NULL,
   if(identical(chartType, "waterfall")){
     chartType <- NULL
   }
-  if(!is.null(file)){ is_writeable_path(file) }
+  if(!is.null(file)){ 
+    assert_that(is_writeable_path(file))
+  }
   checkArgs(server, testId, run, dryRun, repeatView, thumbnail, 
             # dataURI, 
             chartType, colorByMime, chartWidth, maxTime, wrequests, noCPU, 

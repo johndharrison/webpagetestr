@@ -31,7 +31,9 @@ getScreenshotImage <- function(server, testId, run = 1L, file = NULL,
                                documentComplete = FALSE, dryRun = FALSE, 
                                ...){
   
-  if(!is.null(file)){ is_writeable_path(file) }
+  if(!is.null(file)){ 
+    assert_that(is_writeable_path(file))
+  }
   checkArgs(server, testId, run, dryRun, repeatView, thumbnail, 
             fullResolution, startRender, documentComplete)
   screenSType <- if(startRender){

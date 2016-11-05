@@ -13,7 +13,8 @@
 #'
 #' @example /inst/examples/docs/getStatus.R
 
-getTestStatus <- function(server, testId ,requestId = NULL, dryRun = FALSE, ...){
+getTestStatus <- function(server, testId ,requestId = NULL, 
+                          dryRun = FALSE, ...){
   checkArgs(server, testId, requestId, dryRun)
   body <- list(
     list(testId , "test"),
