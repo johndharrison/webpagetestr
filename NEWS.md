@@ -1,3 +1,7 @@
+# 0.0.7
+* Add getWaterfallImage function, tests and docs
+* Add getScreenshotImage function, tests and docs
+
 # 0.0.6
 * Add getChromeTraceData function, tests and docs
 * Add getConsoleLogData function, tests and docs

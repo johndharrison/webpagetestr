@@ -6,6 +6,7 @@ r_github_packages:
 - johndharrison/webpagetestr
 r_packages:
 - png
+- jpeg
 env:
   matrix:
   - NOT_CRAN=true
