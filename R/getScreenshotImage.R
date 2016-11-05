@@ -30,7 +30,7 @@ getScreenshotImage <- function(server, testId, run = 1L, file = NULL,
                                fullResolution = FALSE, startRender = FALSE,
                                documentComplete = FALSE, dryRun = FALSE, 
                                ...){
-
+  
   if(!is.null(file)){ is_writeable_path(file) }
   checkArgs(server, testId, run, dryRun, repeatView, thumbnail, 
             fullResolution, startRender, documentComplete)
@@ -74,6 +74,10 @@ getScreenshotImage <- function(server, testId, run = 1L, file = NULL,
   if(dryRun){return(res)}
   if(!is.null(file)){return()}
   ScreenshotImage <- 
-    content(res)
+    content(res, type = 
+              switch(tools::file_ext(body[["file"]]),
+                     "jpg" = "image/jpeg",
+                     "png" = "image/png")
+    )
   ScreenshotImage
 } 
