@@ -39,3 +39,24 @@ test_that("canGetScreenshotImageDryRun", {
                    "&cached=1&file=2_Cached_screen_render.jpg")
   expect_identical(img, testDR)
 })
+
+test_that("canGetScreenshotImageDryRunDocumentComplete", {
+  WPT <- server()
+  img <- getScreenshotImage(WPT, testId = "someId", run = 2L, 
+                            repeatView = TRUE, thumbnail = TRUE, 
+                            fullResolution = TRUE, documentComplete = TRUE,
+                            dryRun = TRUE)
+  testDR <- paste0(WPT[["url"]], "/thumbnail.php?test=someId&run=2",
+                   "&cached=1&file=2_Cached_screen_doc.jpg")
+  expect_identical(img, testDR)
+})
+
+test_that("canGetScreenshotImageDryRunFullResolution", {
+  WPT <- server()
+  img <- getScreenshotImage(WPT, testId = "someId", run = 2L, 
+                            repeatView = TRUE, thumbnail = TRUE, 
+                            fullResolution = TRUE, dryRun = TRUE)
+  testDR <- paste0(WPT[["url"]], "/thumbnail.php?test=someId&run=2",
+                   "&cached=1&file=2_Cached_screen.png")
+  expect_identical(img, testDR)
+})
