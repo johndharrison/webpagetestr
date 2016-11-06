@@ -62,3 +62,21 @@ assertthat::on_failure(is_writeable_path) <-  function(call, env) {
          " is not a writeable file/path")
 }
 
+is_character <- function(x) {
+  is.character(x) && !any(is.na(x))
+}
+
+assertthat::on_failure(is_character) <-  function(call, env) {
+  paste0(sub(caArgsReg, "\\1", deparse(call[["x"]])), 
+         " is not a character vector")
+}
+
+is_character_or_null <- function(x) {
+  is_character(x) || is.null(x)
+}
+
+assertthat::on_failure(is_character_or_null) <-  function(call, env) {
+  paste0(sub(caArgsReg, "\\1", deparse(call[["x"]])), 
+         " is not a character vector or NULL")
+}
+
