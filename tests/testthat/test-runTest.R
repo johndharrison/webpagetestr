@@ -1,6 +1,7 @@
 context("runtest")
 
 test_that("canRunTestDryRun1", {
+  WPT <- server()
   rtest <- runTest(WPT, "myURL", key = "akey", location = "aLocation", 
                    connectivity = "Cable", runs = 2L, 
                    firstViewOnly = TRUE, video = TRUE)
@@ -12,6 +13,7 @@ test_that("canRunTestDryRun1", {
 })
 
 test_that("canRunTestDryRun2", {
+  WPT <- server()
   rtest <- runTest(WPT, "myURL", key = "akey", location = "aLocation", 
                    private = TRUE, label = "myLabel", 
                    stopAtDocumentComplete = TRUE, 
@@ -25,6 +27,7 @@ test_that("canRunTestDryRun2", {
 })
 
 test_that("canRunTestDryRun3", {
+  WPT <- server()
   rtest <- runTest(WPT, "myURL", key = "akey", location = "aLocation", 
                    disableCompatibilityView = TRUE, tcpDump = TRUE, 
                    saveResponseBodies = TRUE, 
@@ -38,6 +41,7 @@ test_that("canRunTestDryRun3", {
 })
 
 test_that("canRunTestDryRun4", {
+  WPT <- server()
   rtest <- runTest(WPT, "myURL", key = "akey", location = "aLocation", 
                    tester = "aPC", emulateMobile = TRUE, timeline = TRUE,
                    timelineCallStack = 2L, chromeTrace = TRUE, 
@@ -50,6 +54,7 @@ test_that("canRunTestDryRun4", {
 })
 
 test_that("canRunTestDryRun5", {
+  WPT <- server()
   rtest <- runTest(WPT, "myURL", key = "akey", location = "aLocation", 
                    dataReduction = TRUE, userAgent = "myUA", 
                    commandLine = "coms", login = "user", 
@@ -63,6 +68,7 @@ test_that("canRunTestDryRun5", {
 })
 
 test_that("canRunTestDryRun6", {
+  WPT <- server()
   rtest <- runTest(WPT, "myURL", key = "akey", location = "aLocation", 
                    disableHTTPHeaders = TRUE, block = c("url1", "url2"), 
                    spof = c("domain1", "domain2"), 
@@ -80,6 +86,7 @@ test_that("canRunTestDryRun6", {
 })
 
 test_that("canRunTestDryRun7", {
+  WPT <- server()
   rtest <- runTest(WPT, "myURL", key = "akey", location = "aLocation", 
                    pingback = "xyz.com", bandwidthDown = 50L, 
                    bandwidthUp = 50L, latency = 4000L, 
@@ -94,6 +101,7 @@ test_that("canRunTestDryRun7", {
 })
 
 test_that("canRunTestDryRun8", {
+  WPT <- server()
   rtest <- runTest(WPT, "myURL", key = "akey", location = "aLocation", 
                    disableScreenshot = TRUE, 
                    fullResolutionScreenshot = TRUE, jpegQuality = 60L, 
@@ -108,6 +116,7 @@ test_that("canRunTestDryRun8", {
 })
 
 test_that("canRunTestDryRun9", {
+  WPT <- server()
   rtest <- runTest(WPT, "myURL", key = "akey", location = "aLocation", 
                    tsViewConfigs = "tsConfig", affinity = "hash", 
                    priority = 2L, 
@@ -123,6 +132,7 @@ test_that("canRunTestDryRun9", {
 })
 
 test_that("canRunTestDryRun10", {
+  WPT <- server()
   rtest <- runTest(WPT, "myURL", key = "akey", location = "aLocation", 
                    forceSoftwareRendering = TRUE,  requestId = "someId", 
                    breakDown = TRUE, domains = TRUE, pageSpeed = TRUE, 
