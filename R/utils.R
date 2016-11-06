@@ -819,6 +819,202 @@ checkArgs <- function(...){
     assert_that(is_logical(caArgs[["documentComplete"]]))
   }
   
+  if(!is.null(caArgs[["urlOrScript"]])){
+    assert_that(is_string(caArgs[["urlOrScript"]]))
+  }
+  
+  if(!is.null(caArgs[["key"]])){
+    assert_that(is_string_or_null(caArgs[["key"]]))
+  }
+  
+  if(!is.null(caArgs[["location"]])){
+    assert_that(is_string(caArgs[["location"]]))
+  }
+  
+  if(!is.null(caArgs[["connectivity"]])){
+    assert_that(is_string_or_null(caArgs[["connectivity"]]))
+  }
+  
+  if(!is.null(caArgs[["runs"]])){
+    assert_that(is_integer_or_null(caArgs[["runs"]]))
+  }
+  
+  if(!is.null(caArgs[["firstViewOnly"]])){
+    assert_that(is_logical(caArgs[["firstViewOnly"]]))
+  }
+  
+  if(!is.null(caArgs[["video"]])){
+    assert_that(is_logical(caArgs[["video"]]))
+  }
+  
+  if(!is.null(caArgs[["private"]])){
+    assert_that(is_logical(caArgs[["private"]]))
+  }
+  
+  if(!is.null(caArgs[["label"]])){
+    is_string_or_null((caArgs[["label"]]))
+  }
+  
+  if(!is.null(caArgs[["stopAtDocumentComplete"]])){
+    assert_that(is_logical(caArgs[["stopAtDocumentComplete"]]))
+  }
+  
+  if(!is.null(caArgs[["disableJavaScript"]])){
+    assert_that(is_logical(caArgs[["disableJavaScript"]]))
+  }
+  
+  if(!is.null(caArgs[["clearCerts"]])){
+    assert_that(is_logical(caArgs[["clearCerts"]]))
+  }
+  
+  if(!is.null(caArgs[["ignoreSSL"]])){
+    assert_that(is_logical(caArgs[["ignoreSSL"]]))
+  }
+  
+  if(!is.null(caArgs[["disableCompatibilityView"]])){
+    assert_that(is_logical(caArgs[["disableCompatibilityView"]]))
+  }
+  
+  if(!is.null(caArgs[["tcpDump"]])){
+    assert_that(is_logical(caArgs[["tcpDump"]]))
+  }
+  
+  if(!is.null(caArgs[["saveResponseBodies"]])){
+    assert_that(is_logical(caArgs[["saveResponseBodies"]]))
+  }
+  
+  if(!is.null(caArgs[["keepOriginalUserAgent"]])){
+    assert_that(is_logical(caArgs[["keepOriginalUserAgent"]]))
+  }
+  
+  if(!is.null(caArgs[["domElement"]])){
+    assert_that(is_string_or_null(caArgs[["domElement"]]))
+  }
+  
+  if(!is.null(caArgs[["minimumDuration"]])){
+    assert_that(is_integer_or_null(caArgs[["minimumDuration"]]))
+  }
+  
+  if(!is.null(caArgs[["tester"]])){
+    assert_that(is_string_or_null(caArgs[["tester"]]))
+  }
+  
+  if(!is.null(caArgs[["emulateMobile"]])){
+    assert_that(is_logical(caArgs[["emulateMobile"]]))
+  }
+  
+  if(!is.null(caArgs[["timeline"]])){
+    assert_that(is_logical(caArgs[["timeline"]]))
+  }
+  
+  if(!is.null(caArgs[["timelineCallStack"]])){
+    assert_that(is_integer_or_null(caArgs[["timelineCallStack"]]))
+  }
+  
+  if(!is.null(caArgs[["chromeTrace"]])){
+    assert_that(is_logical(caArgs[["chromeTrace"]]))
+  }
+  
+  if(!is.null(caArgs[["netLog"]])){
+    assert_that(is_logical(caArgs[["netLog"]]))
+  }
+  
+  if(!is.null(caArgs[["dataReduction"]])){
+    assert_that(is_logical(caArgs[["dataReduction"]]))
+  }
+  
+  if(!is.null(caArgs[["userAgent"]])){
+    assert_that(is_string_or_null(caArgs[["userAgent"]]))
+  }
+  
+  if(!is.null(caArgs[["commandLine"]])){
+    assert_that(is_string_or_null(caArgs[["commandLine"]]))
+  }
+  
+  if(!is.null(caArgs[["login"]])){
+    assert_that(is_string_or_null(caArgs[["login"]]))
+  }
+  
+  if(!is.null(caArgs[["password"]])){
+    assert_that(is_string_or_null(caArgs[["password"]]))
+  }
+  
+  if(!is.null(caArgs[["sensitive"]])){
+    assert_that(is_logical(caArgs[["sensitive"]]))
+  }
+  
+  if(!is.null(caArgs[["disableHTTPHeaders"]])){
+    assert_that(is_logical(caArgs[["disableHTTPHeaders"]]))
+  }
+  
+  if(!is.null(caArgs[["block"]])){
+    assert_that(is_character_or_null(caArgs[["block"]]))
+  }
+  
+  if(!is.null(caArgs[["spof"]])){
+    assert_that(is_character_or_null(caArgs[["spof"]]))
+  }
+  
+  if(!is.null(caArgs[["customMetrics"]])){
+    assert_that(is_string_or_null(caArgs[["customMetrics"]]))
+  }
+  
+  if(!is.null(caArgs[["authenticationType"]])){
+    assert_that(is_integer_or_null(caArgs[["authenticationType"]]))
+  }
+  
+  if(!is.null(caArgs[["notifyEmail"]])){
+    assert_that(is_string_or_null(caArgs[["notifyEmail"]]))
+  }
+  
+  if(!is.null(caArgs[["pingback"]])){
+    assert_that(is_string_or_null(caArgs[["pingback"]]))
+  }
+  
+  if(!is.null(caArgs[["bandwidthDown"]])){
+    assert_that(is_integer_or_null(caArgs[["bandwidthDown"]]))
+  }
+  
+  if(!is.null(caArgs[["bandwidthUp"]])){
+    assert_that(is_integer_or_null(caArgs[["bandwidthUp"]]))
+  }
+  
+  if(!is.null(caArgs[["latency"]])){
+    assert_that(is_integer_or_null(caArgs[["latency"]]))
+  }
+  
+  if(!is.null(caArgs[["packetLossRate"]])){
+    assert_that(is_integer_or_null(caArgs[["packetLossRate"]]))
+  }
+  
+  if(!is.null(caArgs[["disableOptimization"]])){
+    assert_that(is_logical(caArgs[["disableOptimization"]]))
+  }
+  
+  if(!is.null(caArgs[["disableScreenshot"]])){
+    assert_that(is_logical(caArgs[["disableScreenshot"]]))
+  }
+  
+  if(!is.null(caArgs[["fullResolutionScreenshot"]])){
+    assert_that(is_logical(caArgs[["fullResolutionScreenshot"]]))
+  }
+  
+  if(!is.null(caArgs[["jpegQuality"]])){
+    assert_that(is_integer_or_null(caArgs[["jpegQuality"]]))
+  }
+  
+  if(!is.null(caArgs[["medianVideo"]])){
+    assert_that(is_logical(caArgs[["medianVideo"]]))
+  }
+  
+  if(!is.null(caArgs[["htmlBody"]])){
+    assert_that(is_logical(caArgs[["htmlBody"]]))
+  }
+  
+  if(!is.null(caArgs[["tsView"]])){
+    assert_that(is_string_or_null(caArgs[["tsView"]]))
+  }
+  
 }
 
 sendQuery <- function(url, path, body, origin, dryRun, method = "POST", ...){
@@ -835,6 +1031,8 @@ sendQuery <- function(url, path, body, origin, dryRun, method = "POST", ...){
 
 false2Null <- function(x) if(x){as.integer(x)}else{NULL}
 true2Null <- function(x) if(!x){as.integer(x)}else{NULL}
+pasteOrNULL <- 
+  function(x) if(is.null(x)){NULL}else{paste(x, collapse = " ")}
 
 parseRequestData <- function(txt){
   dumRead <- readr::read_tsv(txt, col_names = FALSE)
