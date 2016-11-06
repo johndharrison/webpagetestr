@@ -22,9 +22,9 @@ runTest(server, urlOrScript, key = NULL, location, connectivity = NULL,
   jpegQuality = NULL, medianVideo = FALSE, htmlBody = FALSE,
   tsView = NULL, tsViewConfigs = NULL, affinity = NULL, priority = NULL,
   blockAds = FALSE, continuousVideoCapture = FALSE, forceSpdy3 = FALSE,
-  forceSoftwareRendering, pollResults, waitResults, timeout, requestId,
-  breakDown, domains, pageSpeed, requests, medianMetric, medianRun, specs,
-  reporter, dryRun = TRUE, ...)
+  forceSoftwareRendering = FALSE, requestId = NULL, breakDown = FALSE,
+  domains = FALSE, pageSpeed = FALSE, requests = FALSE,
+  medianMetric = NULL, medianRun = NULL, dryRun = TRUE, ...)
 }
 \arguments{
 \item{server}{A WebPagetest server}
@@ -153,25 +153,24 @@ video is enabled}
 \item{tsView}{test name to use when submitting results to tsviewdb (for 
 private instances that have integrated with tsviewdb)}
 
-\item{tsViewConfigs}{}
+\item{tsViewConfigs}{configs to use when submitting results to tsviewdb 
+(for private instances that have integrated with tsviewdb)}
 
-\item{affinity}{}
+\item{affinity}{string to hash test to a specific test agent. tester 
+will be picked by index among available testers}
 
-\item{priority}{}
+\item{priority}{change test priority (0-9) [enforced by API key, 
+otherwise 5]}
 
-\item{blockAds}{}
+\item{blockAds}{block ads defined by adblockrules.org}
 
-\item{continuousVideoCapture}{}
+\item{continuousVideoCapture}{capture video continuously 
+(unstable/experimental, may cause tests to fail)}
 
-\item{forceSpdy3}{}
+\item{forceSpdy3}{force SPDY version 3 (Chrome only)}
 
-\item{forceSoftwareRendering}{}
-
-\item{pollResults}{}
-
-\item{waitResults}{}
-
-\item{timeout}{}
+\item{forceSoftwareRendering}{force software rendering, disable GPU 
+acceleration (Chrome only)}
 
 \item{requestId}{request ID, useful to track asynchronous requests}
 
@@ -196,14 +195,13 @@ include "visualComplete", "SpeedIndex", "titleTime", "domTime",
 Defaults to "median = NULL. Other acceptable values include 
 "fastest".}
 
-\item{specs}{}
-
-\item{reporter}{}
-
 \item{dryRun}{If TRUE just return the RESTful API URL. Defaults to 
 FALSE}
 
 \item{...}{Additonal function arguments}
+}
+\value{
+a list of results
 }
 \description{
 Run test

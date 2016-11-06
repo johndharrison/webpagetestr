@@ -107,3 +107,33 @@ test_that("canRunTestDryRun8", {
   expect_identical(rtest, drExpect)
 })
 
+test_that("canRunTestDryRun9", {
+  rtest <- runTest(WPT, "myURL", key = "akey", location = "aLocation", 
+                   tsViewConfigs = "tsConfig", affinity = "hash", 
+                   priority = 2L, 
+                   blockAds = TRUE, continuousVideoCapture = TRUE, 
+                   forceSpdy3 = TRUE)
+  # webpagetest -d test -k akey --tsviewconfigs tsConfig --affinity hash 
+  #     --priority 2 --noads --continuous --spdy3 myURL
+  drExpect <- paste0("http://www.webpagetest.org/runtest.php?url=myURL", 
+                     "&k=akey&location=aLocation&tsview_configs=tsConfig", 
+                     "&affinity=hash&priority=2&blockads=1", 
+                     "&continuousVideo=1&spdy3=1&f=json")
+  expect_identical(rtest, drExpect)
+})
+
+test_that("canRunTestDryRun10", {
+  rtest <- runTest(WPT, "myURL", key = "akey", location = "aLocation", 
+                   forceSoftwareRendering = TRUE,  requestId = "someId", 
+                   breakDown = TRUE, domains = TRUE, pageSpeed = TRUE, 
+                   requests = TRUE, medianMetric = "loadTime", 
+                   medianRun = "median")
+  # webpagetest -d test -k akey --swrender -e someId --breakdown --domains
+  #     --pagespeed --requests --median loadTime --medianrun median myURL
+  drExpect <- paste0("http://www.webpagetest.org/runtest.php?url=myURL", 
+                     "&k=akey&location=aLocation&swrender=1&r=someId", 
+                     "&breakdown=1&domains=1&pagespeed=1&requests=1", 
+                     "&medianMetric=loadTime&medianRun=median&f=json")
+  expect_identical(rtest, drExpect)
+})
+

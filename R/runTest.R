@@ -52,16 +52,13 @@
 #' @template medianVideo 
 #' @template htmlBody 
 #' @template tsView 
-#' @param tsViewConfigs 
-#' @param affinity 
-#' @param priority 
-#' @param blockAds 
-#' @param continuousVideoCapture 
-#' @param forceSpdy3 
-#' @param forceSoftwareRendering 
-#' @param pollResults 
-#' @param waitResults 
-#' @param timeout 
+#' @template tsViewConfigs 
+#' @template affinity 
+#' @template priority 
+#' @template blockAds 
+#' @template continuousVideoCapture 
+#' @template forceSpdy3 
+#' @template forceSoftwareRendering 
 #' @template  requestId 
 #' @template breakDown 
 #' @template domains 
@@ -69,12 +66,10 @@
 #' @template requests 
 #' @template medianMetric 
 #' @template medianRun 
-#' @param specs 
-#' @param reporter 
 #' @template dryRun 
 #' @template ellipsis 
 #'
-#' @return
+#' @return a list of results
 #' @export
 #'
 #' @example /inst/examples/docs/runTest.R
@@ -106,14 +101,15 @@ runTest <- function(server, urlOrScript, key = NULL, location,
                     fullResolutionScreenshot = FALSE, jpegQuality = NULL, 
                     medianVideo = FALSE, htmlBody = FALSE, 
                     tsView = NULL, 
-                    
                     tsViewConfigs = NULL, affinity = NULL, priority = NULL, 
                     blockAds = FALSE, continuousVideoCapture = FALSE, 
                     forceSpdy3 = FALSE, 
-                    
-                    forceSoftwareRendering, pollResults, waitResults, 
-                    timeout, requestId, breakDown, domains, pageSpeed, 
-                    requests, medianMetric, medianRun, specs, reporter,
+                    # pollResults, waitResults, timeout, # non API ADD?
+                    forceSoftwareRendering = FALSE,  requestId = NULL, 
+                    breakDown = FALSE, domains = FALSE, pageSpeed = FALSE, 
+                    requests = FALSE, medianMetric = NULL, 
+                    medianRun = NULL, 
+                    # specs, reporter, # non API ADD?
                     dryRun = TRUE, ...){
   checkArgs(server, urlOrScript, key, location, connectivity, runs, 
             firstViewOnly, video, 
@@ -127,7 +123,11 @@ runTest <- function(server, urlOrScript, key = NULL, location,
             authenticationType, notifyEmail, pingback, bandwidthDown, 
             bandwidthUp, latency, packetLossRate, disableOptimization,
             disableScreenshot, fullResolutionScreenshot, jpegQuality, 
-            medianVideo, htmlBody, tsView)
+            medianVideo, htmlBody, tsView, tsViewConfigs, affinity, 
+            priority, blockAds, continuousVideoCapture, forceSpdy3,
+            forceSoftwareRendering,  requestId, 
+            breakDown, domains, pageSpeed, 
+            requests, medianMetric, medianRun)
   if(!is.null(connectivity)){
     location <- paste(location, connectivity, sep = ".")
   }
@@ -193,6 +193,23 @@ runTest <- function(server, urlOrScript, key = NULL, location,
     list(false2Null(medianVideo), WPTOptions[["medianVideo"]][["api"]]),
     list(false2Null(htmlBody), WPTOptions[["htmlBody"]][["api"]]),
     list(tsView, WPTOptions[["tsView"]][["api"]]),
+
+    list(tsViewConfigs, WPTOptions[["tsViewConfigs"]][["api"]]),
+    list(affinity, WPTOptions[["affinity"]][["api"]]),
+    list(priority, WPTOptions[["priority"]][["api"]]),
+    list(false2Null(blockAds), WPTOptions[["blockAds"]][["api"]]),
+    list(false2Null(continuousVideoCapture), 
+         WPTOptions[["continuousVideoCapture"]][["api"]]),
+    list(false2Null(forceSoftwareRendering), 
+         WPTOptions[["forceSoftwareRendering"]][["api"]]),
+    list(false2Null(forceSpdy3), WPTOptions[["forceSpdy3"]][["api"]]),
+    list(requestId, WPTOptions[["requestId"]][["api"]]),
+    list(false2Null(breakDown), WPTOptions[["breakDown"]][["api"]]),
+    list(false2Null(domains), WPTOptions[["domains"]][["api"]]),
+    list(false2Null(pageSpeed), WPTOptions[["pageSpeed"]][["api"]]),
+    list(false2Null(requests), WPTOptions[["requests"]][["api"]]),
+    list(medianMetric, WPTOptions[["medianMetric"]][["api"]]),
+    list(medianRun, WPTOptions[["medianRun"]][["api"]]),
     list("json", "f")
   )
   body <- setNames(lapply(body, "[[", 1), 

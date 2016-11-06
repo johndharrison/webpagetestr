@@ -1015,6 +1015,34 @@ checkArgs <- function(...){
     assert_that(is_string_or_null(caArgs[["tsView"]]))
   }
   
+  if(!is.null(caArgs[["tsViewConfigs"]])){
+    assert_that(is_string_or_null(caArgs[["tsViewConfigs"]]))
+  }
+  
+  if(!is.null(caArgs[["affinity"]])){
+    assert_that(is_string_or_null(caArgs[["affinity"]]))
+  }
+  
+  if(!is.null(caArgs[["priority"]])){
+    assert_that(is_integer_or_null(caArgs[["priority"]]))
+  }
+  
+  if(!is.null(caArgs[["blockAds"]])){
+    assert_that(is_logical(caArgs[["blockAds"]]))
+  }
+  
+  if(!is.null(caArgs[["continuousVideoCapture"]])){
+    assert_that(is_logical(caArgs[["continuousVideoCapture"]]))
+  }
+  
+  if(!is.null(caArgs[["forceSpdy3"]])){
+    assert_that(is_logical(caArgs[["forceSpdy3"]]))
+  }
+  
+  if(!is.null(caArgs[["forceSoftwareRendering"]])){
+    assert_that(is_logical(caArgs[["forceSoftwareRendering"]]))
+  }
+  
 }
 
 sendQuery <- function(url, path, body, origin, dryRun, method = "POST", ...){
