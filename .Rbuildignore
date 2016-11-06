@@ -3,3 +3,4 @@
 man-roxygen
 .V8history
 .travis.yml
+^docs$
