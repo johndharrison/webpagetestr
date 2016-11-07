@@ -4,12 +4,16 @@
 \alias{getLocations}
 \title{Get server locations}
 \usage{
-getLocations(server, requestId = NULL, dryRun = FALSE, ...)
+getLocations(server, requestId = NULL, key = Sys.getenv("WPTKEY"),
+  dryRun = FALSE, ...)
 }
 \arguments{
 \item{server}{A WebPagetest server}
 
 \item{requestId}{request ID, useful to track asynchronous requests}
+
+\item{key}{API key (if assigned). Contact the WebPageTest server 
+administrator for a key if required}
 
 \item{dryRun}{If TRUE just return the RESTful API URL. Defaults to 
 FALSE}
@@ -17,7 +21,8 @@ FALSE}
 \item{...}{Additonal function arguments}
 }
 \value{
-A list of locations and the number of pending tests at those locations
+A list of locations and the number of pending tests at those 
+    locations
 }
 \description{
 List locations and the number of pending tests

@@ -1,4 +1,4 @@
 \dontrun{
   WPT <- server()
-  har <- getHARData(WPT, location = "someLoc")
+  har <- runTest(WPT, location = "someLoc")
 }

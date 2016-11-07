@@ -4,18 +4,22 @@
 #' 
 #' @template  server 
 #' @template  requestId 
+#' @template  key 
 #' @template  dryRun 
 #' @template ellipsis
 #'
-#' @return A list of locations and the number of pending tests at those locations
+#' @return A list of locations and the number of pending tests at those 
+#'     locations
 #' @export
-#'
+#'  
 #' @example /inst/examples/docs/getLocations.R
 
-getLocations <- function(server, requestId = NULL, dryRun = FALSE, ...){
-  checkArgs(server, requestId, dryRun)
+getLocations <- function(server, requestId = NULL, 
+                         key = Sys.getenv("WPTKEY"), dryRun = FALSE, ...){
+  checkArgs(server, requestId, key, dryRun)
   body <- list(
     list(requestId , WPTOptions[["requestId"]][["api"]]),
+    list(key , WPTOptions[["key"]][["api"]]),
     list("json" , "f")
   )
   body <- setNames(lapply(body, "[[", 1), 

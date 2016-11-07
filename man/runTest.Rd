@@ -4,9 +4,10 @@
 \alias{runTest}
 \title{Run test}
 \usage{
-runTest(server, urlOrScript, key = NULL, location, connectivity = NULL,
-  runs = NULL, firstViewOnly = FALSE, video = FALSE, private = FALSE,
-  label = NULL, stopAtDocumentComplete = FALSE, disableJavaScript = FALSE,
+runTest(server, urlOrScript, key = Sys.getenv("WPTKEY"), location,
+  connectivity = NULL, runs = NULL, firstViewOnly = FALSE,
+  video = FALSE, private = FALSE, label = NULL,
+  stopAtDocumentComplete = FALSE, disableJavaScript = FALSE,
   clearCerts = FALSE, ignoreSSL = FALSE, disableCompatibilityView = FALSE,
   tcpDump = FALSE, saveResponseBodies = FALSE,
   keepOriginalUserAgent = FALSE, domElement = NULL,
@@ -24,7 +25,7 @@ runTest(server, urlOrScript, key = NULL, location, connectivity = NULL,
   blockAds = FALSE, continuousVideoCapture = FALSE, forceSpdy3 = FALSE,
   forceSoftwareRendering = FALSE, requestId = NULL, breakDown = FALSE,
   domains = FALSE, pageSpeed = FALSE, requests = FALSE,
-  medianMetric = NULL, medianRun = NULL, dryRun = TRUE, ...)
+  medianMetric = NULL, medianRun = NULL, dryRun = FALSE, ...)
 }
 \arguments{
 \item{server}{A WebPagetest server}
@@ -209,7 +210,7 @@ Run test
 \examples{
 \dontrun{
   WPT <- server()
-  har <- getHARData(WPT, location = "someLoc")
+  har <- runTest(WPT, location = "someLoc")
 }
 }
 

@@ -74,7 +74,8 @@
 #'
 #' @example /inst/examples/docs/runTest.R
 
-runTest <- function(server, urlOrScript, key = NULL, location, 
+runTest <- function(server, urlOrScript, key = Sys.getenv("WPTKEY"), 
+                    location, 
                     connectivity = NULL, runs = NULL, 
                     firstViewOnly = FALSE, video = FALSE, 
                     private = FALSE, label = NULL, 
@@ -110,7 +111,7 @@ runTest <- function(server, urlOrScript, key = NULL, location,
                     requests = FALSE, medianMetric = NULL, 
                     medianRun = NULL, 
                     # specs, reporter, # non API ADD?
-                    dryRun = TRUE, ...){
+                    dryRun = FALSE, ...){
   checkArgs(server, urlOrScript, key, location, connectivity, runs, 
             firstViewOnly, video, 
             private, label, stopAtDocumentComplete, disableJavaScript, 
@@ -218,6 +219,12 @@ runTest <- function(server, urlOrScript, key = NULL, location,
                    body = body, origin = "runTest", dryRun = dryRun,
                    ...)
   if(dryRun){return(res)}
-  res
+  testRun <- content(res)
+  if(testRun[["statusCode"]] <= 200L){
+    `attr<-`(testRun[["data"]], "class", "testrun")
+  }else{
+    stop("Server returned a statusCode = ", testRun[["statusCode"]],
+         " with statusText = ", testRun[["statusText"]])
+  }
 } 
 

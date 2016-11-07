@@ -807,7 +807,8 @@ checkArgs <- function(...){
   })
 }
 
-sendQuery <- function(url, path, body, origin, dryRun, method = "POST", ...){
+sendQuery <- function(url, path, body, origin, dryRun, 
+                      method = "POST", ...){
   if(dryRun){return(modify_url(url, path = path, query = body))}
   WPTResponse <- 
     switch(method,
