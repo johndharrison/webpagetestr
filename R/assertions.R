@@ -55,6 +55,14 @@ assertthat::on_failure(is_writeable_path) <-  function(call, env) {
   paste0(env$x, " is not a writeable file/path")
 }
 
+is_writeable_path_or_null <- function(x){
+  is_writeable_path(x) || is.null(x)
+}
+
+assertthat::on_failure(is_writeable_path_or_null) <-  function(call, env) {
+  paste0(env$x, " is not a writeable file/path or NULL")
+}
+
 is_character <- function(x) {
   is.character(x) && !any(is.na(x))
 }
