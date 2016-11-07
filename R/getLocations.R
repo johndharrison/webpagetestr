@@ -16,6 +16,7 @@
 
 getLocations <- function(server, requestId = NULL, 
                          key = Sys.getenv("WPTKEY"), dryRun = FALSE, ...){
+  if(identical(key, "")){key <- NULL}
   checkArgs(server, requestId, key, dryRun)
   body <- list(
     list(requestId , WPTOptions[["requestId"]][["api"]]),
