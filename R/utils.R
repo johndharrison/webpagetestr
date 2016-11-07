@@ -713,336 +713,96 @@ WPTOptions <-
 checkArgs <- function(...){
   aNames <- as.character(as.list(substitute(list(...)))[-1L])
   caArgs <- setNames(list(...), aNames)
-  if(!is.null(caArgs[["server"]])){
-    assert_that(is_server(caArgs[["server"]]))
-  }
-  if(!is.null(caArgs[["requestId"]])){
-    assert_that(is_string_or_null(caArgs[["requestId"]]))
-  }
-  if(!is.null(caArgs[["dryRun"]])){
-    assert_that(is_logical(caArgs[["dryRun"]]))
-  }
-  if(!is.null(caArgs[["testId"]])){assert_that(is_string(caArgs[["testId"]]))}
-  
-  if(!is.null(caArgs[["days"]])){
-    assert_that(is_integer(caArgs[["days"]]))
-  }
-  if(!is.null(caArgs[["filter"]])){
-    assert_that(is_string_or_null(caArgs[["filter"]]))
-  }
-  
-  if(!is.null(caArgs[["breakDown"]])){
-    assert_that(is_logical(caArgs[["breakDown"]]))
-  }
-  
-  if(!is.null(caArgs[["domains"]])){
-    assert_that(is_logical(caArgs[["domains"]]))
-  }
-  
-  if(!is.null(caArgs[["pageSpeed"]])){
-    assert_that(is_logical(caArgs[["pageSpeed"]]))
-  }
-  
-  if(!is.null(caArgs[["requests"]])){
-    assert_that(is_logical(caArgs[["requests"]]))
-  }
-  
-  if(!is.null(caArgs[["medianMetric"]])){
-    assert_that(is_string_or_null(caArgs[["medianMetric"]]))
-  }
-  
-  if(!is.null(caArgs[["medianRun"]])){
-    assert_that(is_string_or_null(caArgs[["medianRun"]]))
-  }
-  
-  if(!is.null(caArgs[["request"]])){
-    assert_that(is_integer(caArgs[["request"]]))
-  }
-  
-  if(!is.null(caArgs[["run"]])){
-    assert_that(is_integer_or_null(caArgs[["run"]]))
-  }
-  
-  if(!is.null(caArgs[["thumbnail"]])){
-    assert_that(is_logical(caArgs[["thumbnail"]]))
-  }
-  
-  # if(!is.null(caArgs[["dataURI"]])){
-  #   assert_that(is_logical(caArgs[["dataURI"]]))
-  # }
-  # 
-  if(!is.null(caArgs[["chartType"]])){
-    assert_that(is_string_or_null(caArgs[["chartType"]]))
-  }
-  
-  if(!is.null(caArgs[["colorByMime"]])){
-    assert_that(is_logical(caArgs[["colorByMime"]]))
-  }
-  
-  if(!is.null(caArgs[["chartWidth"]])){
-    assert_that(is_integer_or_null(caArgs[["chartWidth"]]))
-  }
-  
-  if(!is.null(caArgs[["maxTime"]])){
-    assert_that(is_integer_or_null(caArgs[["maxTime"]]))
-  }
-  
-  if(!is.null(caArgs[["wrequests"]])){
-    assert_that(is_string_or_null(caArgs[["wrequests"]]))
-  }
-  
-  if(!is.null(caArgs[["noCPU"]])){
-    assert_that(is_logical(caArgs[["noCPU"]]))
-  }
-  
-  if(!is.null(caArgs[["noBandwidth"]])){
-    assert_that(is_logical(caArgs[["noBandwidth"]]))
-  }
-  
-  if(!is.null(caArgs[["noEllipsis"]])){
-    assert_that(is_logical(caArgs[["noEllipsis"]]))
-  }
-  
-  if(!is.null(caArgs[["noLabels"]])){
-    assert_that(is_logical(caArgs[["noLabels"]]))
-  }
-  
-  if(!is.null(caArgs[["fullResolution"]])){
-    assert_that(is_logical(caArgs[["fullResolution"]]))
-  }
-  
-  if(!is.null(caArgs[["startRender"]])){
-    assert_that(is_logical(caArgs[["startRender"]]))
-  }
-  
-  if(!is.null(caArgs[["documentComplete"]])){
-    assert_that(is_logical(caArgs[["documentComplete"]]))
-  }
-  
-  if(!is.null(caArgs[["urlOrScript"]])){
-    assert_that(is_string(caArgs[["urlOrScript"]]))
-  }
-  
-  if(!is.null(caArgs[["key"]])){
-    assert_that(is_string_or_null(caArgs[["key"]]))
-  }
-  
-  if(!is.null(caArgs[["location"]])){
-    assert_that(is_string(caArgs[["location"]]))
-  }
-  
-  if(!is.null(caArgs[["connectivity"]])){
-    assert_that(is_string_or_null(caArgs[["connectivity"]]))
-  }
-  
-  if(!is.null(caArgs[["runs"]])){
-    assert_that(is_integer_or_null(caArgs[["runs"]]))
-  }
-  
-  if(!is.null(caArgs[["firstViewOnly"]])){
-    assert_that(is_logical(caArgs[["firstViewOnly"]]))
-  }
-  
-  if(!is.null(caArgs[["video"]])){
-    assert_that(is_logical(caArgs[["video"]]))
-  }
-  
-  if(!is.null(caArgs[["private"]])){
-    assert_that(is_logical(caArgs[["private"]]))
-  }
-  
-  if(!is.null(caArgs[["label"]])){
-    is_string_or_null((caArgs[["label"]]))
-  }
-  
-  if(!is.null(caArgs[["stopAtDocumentComplete"]])){
-    assert_that(is_logical(caArgs[["stopAtDocumentComplete"]]))
-  }
-  
-  if(!is.null(caArgs[["disableJavaScript"]])){
-    assert_that(is_logical(caArgs[["disableJavaScript"]]))
-  }
-  
-  if(!is.null(caArgs[["clearCerts"]])){
-    assert_that(is_logical(caArgs[["clearCerts"]]))
-  }
-  
-  if(!is.null(caArgs[["ignoreSSL"]])){
-    assert_that(is_logical(caArgs[["ignoreSSL"]]))
-  }
-  
-  if(!is.null(caArgs[["disableCompatibilityView"]])){
-    assert_that(is_logical(caArgs[["disableCompatibilityView"]]))
-  }
-  
-  if(!is.null(caArgs[["tcpDump"]])){
-    assert_that(is_logical(caArgs[["tcpDump"]]))
-  }
-  
-  if(!is.null(caArgs[["saveResponseBodies"]])){
-    assert_that(is_logical(caArgs[["saveResponseBodies"]]))
-  }
-  
-  if(!is.null(caArgs[["keepOriginalUserAgent"]])){
-    assert_that(is_logical(caArgs[["keepOriginalUserAgent"]]))
-  }
-  
-  if(!is.null(caArgs[["domElement"]])){
-    assert_that(is_string_or_null(caArgs[["domElement"]]))
-  }
-  
-  if(!is.null(caArgs[["minimumDuration"]])){
-    assert_that(is_integer_or_null(caArgs[["minimumDuration"]]))
-  }
-  
-  if(!is.null(caArgs[["tester"]])){
-    assert_that(is_string_or_null(caArgs[["tester"]]))
-  }
-  
-  if(!is.null(caArgs[["emulateMobile"]])){
-    assert_that(is_logical(caArgs[["emulateMobile"]]))
-  }
-  
-  if(!is.null(caArgs[["timeline"]])){
-    assert_that(is_logical(caArgs[["timeline"]]))
-  }
-  
-  if(!is.null(caArgs[["timelineCallStack"]])){
-    assert_that(is_integer_or_null(caArgs[["timelineCallStack"]]))
-  }
-  
-  if(!is.null(caArgs[["chromeTrace"]])){
-    assert_that(is_logical(caArgs[["chromeTrace"]]))
-  }
-  
-  if(!is.null(caArgs[["netLog"]])){
-    assert_that(is_logical(caArgs[["netLog"]]))
-  }
-  
-  if(!is.null(caArgs[["dataReduction"]])){
-    assert_that(is_logical(caArgs[["dataReduction"]]))
-  }
-  
-  if(!is.null(caArgs[["userAgent"]])){
-    assert_that(is_string_or_null(caArgs[["userAgent"]]))
-  }
-  
-  if(!is.null(caArgs[["commandLine"]])){
-    assert_that(is_string_or_null(caArgs[["commandLine"]]))
-  }
-  
-  if(!is.null(caArgs[["login"]])){
-    assert_that(is_string_or_null(caArgs[["login"]]))
-  }
-  
-  if(!is.null(caArgs[["password"]])){
-    assert_that(is_string_or_null(caArgs[["password"]]))
-  }
-  
-  if(!is.null(caArgs[["sensitive"]])){
-    assert_that(is_logical(caArgs[["sensitive"]]))
-  }
-  
-  if(!is.null(caArgs[["disableHTTPHeaders"]])){
-    assert_that(is_logical(caArgs[["disableHTTPHeaders"]]))
-  }
-  
-  if(!is.null(caArgs[["block"]])){
-    assert_that(is_character_or_null(caArgs[["block"]]))
-  }
-  
-  if(!is.null(caArgs[["spof"]])){
-    assert_that(is_character_or_null(caArgs[["spof"]]))
-  }
-  
-  if(!is.null(caArgs[["customMetrics"]])){
-    assert_that(is_string_or_null(caArgs[["customMetrics"]]))
-  }
-  
-  if(!is.null(caArgs[["authenticationType"]])){
-    assert_that(is_integer_or_null(caArgs[["authenticationType"]]))
-  }
-  
-  if(!is.null(caArgs[["notifyEmail"]])){
-    assert_that(is_string_or_null(caArgs[["notifyEmail"]]))
-  }
-  
-  if(!is.null(caArgs[["pingback"]])){
-    assert_that(is_string_or_null(caArgs[["pingback"]]))
-  }
-  
-  if(!is.null(caArgs[["bandwidthDown"]])){
-    assert_that(is_integer_or_null(caArgs[["bandwidthDown"]]))
-  }
-  
-  if(!is.null(caArgs[["bandwidthUp"]])){
-    assert_that(is_integer_or_null(caArgs[["bandwidthUp"]]))
-  }
-  
-  if(!is.null(caArgs[["latency"]])){
-    assert_that(is_integer_or_null(caArgs[["latency"]]))
-  }
-  
-  if(!is.null(caArgs[["packetLossRate"]])){
-    assert_that(is_integer_or_null(caArgs[["packetLossRate"]]))
-  }
-  
-  if(!is.null(caArgs[["disableOptimization"]])){
-    assert_that(is_logical(caArgs[["disableOptimization"]]))
-  }
-  
-  if(!is.null(caArgs[["disableScreenshot"]])){
-    assert_that(is_logical(caArgs[["disableScreenshot"]]))
-  }
-  
-  if(!is.null(caArgs[["fullResolutionScreenshot"]])){
-    assert_that(is_logical(caArgs[["fullResolutionScreenshot"]]))
-  }
-  
-  if(!is.null(caArgs[["jpegQuality"]])){
-    assert_that(is_integer_or_null(caArgs[["jpegQuality"]]))
-  }
-  
-  if(!is.null(caArgs[["medianVideo"]])){
-    assert_that(is_logical(caArgs[["medianVideo"]]))
-  }
-  
-  if(!is.null(caArgs[["htmlBody"]])){
-    assert_that(is_logical(caArgs[["htmlBody"]]))
-  }
-  
-  if(!is.null(caArgs[["tsView"]])){
-    assert_that(is_string_or_null(caArgs[["tsView"]]))
-  }
-  
-  if(!is.null(caArgs[["tsViewConfigs"]])){
-    assert_that(is_string_or_null(caArgs[["tsViewConfigs"]]))
-  }
-  
-  if(!is.null(caArgs[["affinity"]])){
-    assert_that(is_string_or_null(caArgs[["affinity"]]))
-  }
-  
-  if(!is.null(caArgs[["priority"]])){
-    assert_that(is_integer_or_null(caArgs[["priority"]]))
-  }
-  
-  if(!is.null(caArgs[["blockAds"]])){
-    assert_that(is_logical(caArgs[["blockAds"]]))
-  }
-  
-  if(!is.null(caArgs[["continuousVideoCapture"]])){
-    assert_that(is_logical(caArgs[["continuousVideoCapture"]]))
-  }
-  
-  if(!is.null(caArgs[["forceSpdy3"]])){
-    assert_that(is_logical(caArgs[["forceSpdy3"]]))
-  }
-  
-  if(!is.null(caArgs[["forceSoftwareRendering"]])){
-    assert_that(is_logical(caArgs[["forceSoftwareRendering"]]))
-  }
-  
+  argList <- 
+    list(server = is_server,
+         requestId = is_string_or_null,
+         dryRun = is_logical,
+         testId = is_string,
+         days = is_integer,
+         filter = is_string_or_null,
+         breakDown = is_logical,
+         domains = is_logical,
+         pageSpeed = is_logical,
+         requests = is_logical,
+         medianMetric = is_string_or_null,
+         medianRun = is_string_or_null,
+         request = is_integer,
+         run = is_integer_or_null,
+         thumbnail = is_logical,
+         repeatView = is_logical,
+         dataURI = is_logical,
+         chartType = is_string_or_null,
+         colorByMime = is_logical,
+         chartWidth = is_integer_or_null,
+         maxTime = is_integer_or_null,
+         wrequests = is_string_or_null,
+         noCPU = is_logical,
+         noBandwidth = is_logical,
+         noEllipsis = is_logical,
+         noLabels = is_logical,
+         fullResolution = is_logical,
+         startRender = is_logical,
+         documentComplete = is_logical,
+         urlOrScript = is_string,
+         key = is_string_or_null,
+         location = is_string,
+         connectivity = is_string_or_null,
+         runs = is_integer_or_null,
+         firstViewOnly = is_logical,
+         video = is_logical,
+         private = is_logical,
+         label = is_string_or_null,
+         stopAtDocumentComplete = is_logical,
+         disableJavaScript = is_logical,
+         clearCerts = is_logical,
+         ignoreSSL = is_logical,
+         disableCompatibilityView = is_logical,
+         tcpDump = is_logical,
+         saveResponseBodies = is_logical,
+         keepOriginalUserAgent = is_logical,
+         domElement = is_string_or_null,
+         minimumDuration = is_integer_or_null,
+         tester = is_string_or_null,
+         emulateMobile = is_logical,
+         timeline = is_logical,
+         timelineCallStack = is_integer_or_null, 
+         chromeTrace = is_logical, 
+         netLog = is_logical,
+         dataReduction = is_logical,
+         userAgent = is_string_or_null,
+         commandLine = is_string_or_null,
+         login = is_string_or_null,
+         password = is_string_or_null,
+         sensitive = is_logical, 
+         disableHTTPHeaders = is_logical, 
+         block = is_character_or_null,
+         spof = is_character_or_null,
+         customMetrics = is_string_or_null,
+         authenticationType = is_integer_or_null,
+         notifyEmail = is_string_or_null,
+         pingback = is_string_or_null,
+         bandwidthDown = is_integer_or_null,
+         bandwidthUp = is_integer_or_null,
+         latency = is_integer_or_null,
+         packetLossRate = is_integer_or_null,
+         disableOptimization = is_logical,
+         disableScreenshot = is_logical,
+         fullResolutionScreenshot = is_logical,
+         jpegQuality = is_integer_or_null,
+         medianVideo = is_logical,
+         htmlBody = is_logical,
+         tsView = is_string_or_null,
+         tsViewConfigs = is_string_or_null,
+         affinity = is_string_or_null,
+         priority = is_integer_or_null,
+         blockAds = is_logical,
+         continuousVideoCapture = is_logical,
+         forceSpdy3 = is_logical,
+         forceSoftwareRendering = is_logical
+    )
+  lapply(names(caArgs), function(x) {
+    assert_that(argList[[x]](caArgs[[x]]))
+  })
 }
 
 sendQuery <- function(url, path, body, origin, dryRun, method = "POST", ...){
