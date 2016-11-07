@@ -4,7 +4,7 @@ test_that("canRunTestDryRun1", {
   WPT <- server()
   rtest <- runTest(WPT, "myURL", key = "akey", location = "aLocation", 
                    connectivity = "Cable", runs = 2L, 
-                   firstViewOnly = TRUE, video = TRUE)
+                   firstViewOnly = TRUE, video = TRUE, dryRun = TRUE)
   # webpagetest -d test -k akey -l aLocation -y Cable -r 2 -fv myURL
   drExpect <- paste0("http://www.webpagetest.org/runtest.php?url=myURL", 
                      "&k=akey&location=aLocation.Cable&connectivity=Cable", 
@@ -18,7 +18,7 @@ test_that("canRunTestDryRun2", {
                    private = TRUE, label = "myLabel", 
                    stopAtDocumentComplete = TRUE, 
                    disableJavaScript = TRUE, 
-                   clearCerts = TRUE, ignoreSSL = TRUE)
+                   clearCerts = TRUE, ignoreSSL = TRUE, dryRun = TRUE)
   # webpagetest -d test -k akey -l aLocation -L myLabel -pisCR myURL
   drExpect <- paste0("http://www.webpagetest.org/runtest.php?url=myURL", 
                      "&k=akey&location=aLocation&private=1&label=myLabel", 
@@ -32,7 +32,7 @@ test_that("canRunTestDryRun3", {
                    disableCompatibilityView = TRUE, tcpDump = TRUE, 
                    saveResponseBodies = TRUE, 
                    keepOriginalUserAgent = TRUE, domElement = "someEl", 
-                   minimumDuration = 30L)
+                   minimumDuration = 30L, dryRun = TRUE)
   # webpagetest -d test -k akey -l aLocation -TuOK -m someEL -N 30 myURL
   drExpect <- paste0("http://www.webpagetest.org/runtest.php?url=myURL",
                      "&k=akey&location=aLocation&standards=1&tcpdump=1",
@@ -45,7 +45,7 @@ test_that("canRunTestDryRun4", {
   rtest <- runTest(WPT, "myURL", key = "akey", location = "aLocation", 
                    tester = "aPC", emulateMobile = TRUE, timeline = TRUE,
                    timelineCallStack = 2L, chromeTrace = TRUE, 
-                   netLog =  TRUE)
+                   netLog =  TRUE, dryRun = TRUE)
   # webpagetest -d test -k akey -l aLocation -E aPC -WM -J -qG myURL
   drExpect <- paste0("http://www.webpagetest.org/runtest.php?url=myURL", 
                      "&k=akey&location=aLocation&tester=aPC&mobile=1", 
@@ -58,7 +58,7 @@ test_that("canRunTestDryRun5", {
   rtest <- runTest(WPT, "myURL", key = "akey", location = "aLocation", 
                    dataReduction = TRUE, userAgent = "myUA", 
                    commandLine = "coms", login = "user", 
-                   password = "pass", sensitive = TRUE)
+                   password = "pass", sensitive = TRUE, dryRun = TRUE)
   # webpagetest -d test -k akey -l aLocation -E aPC -WM -J -qG myURL
   drExpect <- paste0("http://www.webpagetest.org/runtest.php?url=myURL",
                      "&k=akey&location=aLocation&dataReduction=1",
@@ -74,7 +74,7 @@ test_that("canRunTestDryRun6", {
                    spof = c("domain1", "domain2"), 
                    customMetrics = "customMetric", 
                    authenticationType = 1L, 
-                   notifyEmail = "me@xyz.com")
+                   notifyEmail = "me@xyz.com", dryRun = TRUE)
   # webpagetest -d test -k akey -H -b "url1 url2" -Z "domain1 domain2" 
   #    -c customMetric -a 1 -n me@xyz.com myURL
   drExpect <- paste0("http://www.webpagetest.org/runtest.php?url=myURL", 
@@ -90,7 +90,8 @@ test_that("canRunTestDryRun7", {
   rtest <- runTest(WPT, "myURL", key = "akey", location = "aLocation", 
                    pingback = "xyz.com", bandwidthDown = 50L, 
                    bandwidthUp = 50L, latency = 4000L, 
-                   packetLossRate = 30L, disableOptimization = TRUE)
+                   packetLossRate = 30L, disableOptimization = TRUE, 
+                   dryRun = TRUE)
   # webpagetest -d test -k akey -B xyz.com -D 50 -U 50 -Y 4000 
   #     -P 30 -z myURL
   drExpect <- paste0("http://www.webpagetest.org/runtest.php?url=myURL", 
@@ -106,7 +107,7 @@ test_that("canRunTestDryRun8", {
                    disableScreenshot = TRUE, 
                    fullResolutionScreenshot = TRUE, jpegQuality = 60L, 
                    medianVideo = TRUE, htmlBody = TRUE, 
-                   tsView = "someId")
+                   tsView = "someId", dryRun = TRUE)
   # webpagetest -d test -k akey -IF -j 60 -A --htmlbody 
   #     --tsview someId myURL
   drExpect <- paste0("http://www.webpagetest.org/runtest.php?url=myURL", 
@@ -121,7 +122,7 @@ test_that("canRunTestDryRun9", {
                    tsViewConfigs = "tsConfig", affinity = "hash", 
                    priority = 2L, 
                    blockAds = TRUE, continuousVideoCapture = TRUE, 
-                   forceSpdy3 = TRUE)
+                   forceSpdy3 = TRUE, dryRun = TRUE)
   # webpagetest -d test -k akey --tsviewconfigs tsConfig --affinity hash 
   #     --priority 2 --noads --continuous --spdy3 myURL
   drExpect <- paste0("http://www.webpagetest.org/runtest.php?url=myURL", 
@@ -137,7 +138,7 @@ test_that("canRunTestDryRun10", {
                    forceSoftwareRendering = TRUE,  requestId = "someId", 
                    breakDown = TRUE, domains = TRUE, pageSpeed = TRUE, 
                    requests = TRUE, medianMetric = "loadTime", 
-                   medianRun = "median")
+                   medianRun = "median", dryRun = TRUE)
   # webpagetest -d test -k akey --swrender -e someId --breakdown --domains
   #     --pagespeed --requests --median loadTime --medianrun median myURL
   drExpect <- paste0("http://www.webpagetest.org/runtest.php?url=myURL", 
