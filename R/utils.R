@@ -714,7 +714,9 @@ checkArgs <- function(...){
   aNames <- as.character(as.list(substitute(list(...)))[-1L])
   caArgs <- setNames(list(...), aNames)
   argList <- 
-    list(server = is_server,
+    list(serverURL =  is_string,
+         server = is_server,
+         file = is_writeable_path_or_null,
          requestId = is_string_or_null,
          dryRun = is_logical,
          testId = is_string,

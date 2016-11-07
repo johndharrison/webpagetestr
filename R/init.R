@@ -15,7 +15,7 @@
 #' }
 
 server <- function(serverURL = "http://www.webpagetest.org"){
-  assert_that(is_string(serverURL))
+  checkArgs(serverURL)
   server <- list(url = serverURL)
   class(server) <- "WPTserver"
   invisible(server)
