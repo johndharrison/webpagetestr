@@ -1,3 +1,6 @@
+# 0.0.8
+* Add runTest function, tests and docs
+
 # 0.0.7
 * Add getWaterfallImage function, tests and docs
 * Add getScreenshotImage function, tests and docs
