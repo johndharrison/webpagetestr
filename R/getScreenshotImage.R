@@ -30,11 +30,7 @@ getScreenshotImage <- function(server, testId, run = 1L, file = NULL,
                                fullResolution = FALSE, startRender = FALSE,
                                documentComplete = FALSE, dryRun = FALSE, 
                                ...){
-  
-  if(!is.null(file)){ 
-    assert_that(is_writeable_path(file))
-  }
-  checkArgs(server, testId, run, dryRun, repeatView, thumbnail, 
+  checkArgs(server, testId, run, file, dryRun, repeatView, thumbnail, 
             fullResolution, startRender, documentComplete)
   screenSType <- if(startRender){
     WPTfileNames[["screenshotStartRender"]]
