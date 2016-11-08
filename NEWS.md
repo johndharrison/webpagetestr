@@ -1,3 +1,6 @@
+# 0.1.0
+* Add getEmbedVideoPlayer function, tests and docs
+
 # 0.0.9
 * Add cancelTest function, tests and docs
 * Add createVideo function, tests and docs

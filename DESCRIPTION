@@ -1,7 +1,7 @@
 Package: webpagetestr
 Type: Package
 Title: `WebPageTest` API wrapper for R
-Version: 0.0.9
+Version: 0.1.0
 Authors@R: c( person("John", "Harrison", , "johndharrison0@gmail.com",
     role = c("aut", "cre")))
 Description: Interact with <http://www.webpagetest.org/> via the 
@@ -21,6 +21,7 @@ Suggests:
     testthat,
     covr,
     png,
-    jpeg
+    jpeg,
+    xml2
 License: MIT + file LICENSE
 RoxygenNote: 5.0.1
