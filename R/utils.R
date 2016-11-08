@@ -800,7 +800,9 @@ checkArgs <- function(...){
          blockAds = is_logical,
          continuousVideoCapture = is_logical,
          forceSpdy3 = is_logical,
-         forceSoftwareRendering = is_logical
+         forceSoftwareRendering = is_logical,
+         tests = is_character,
+         comparisonEndPoint = is_character_or_null
     )
   lapply(names(caArgs), function(x) {
     assert_that(argList[[x]](caArgs[[x]]))
