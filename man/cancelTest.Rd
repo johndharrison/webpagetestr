@@ -37,10 +37,6 @@ cancel running/pending test
                   location = paste0(maxLoc$location,
                                     ":Chrome"))
   cTest <- cancelTest(WPT, test$testId)
-  cTest <- cancelTest(WPT, test$testId, dryRun = TRUE)
-  expect_identical(cTest, paste0(WPT$url, "/cancelTest.php?test=", 
-                                 test$testId, "&k=", 
-                                 Sys.getenv("WPTKEY"), "&f=json"))
 }
 }
 

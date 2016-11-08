@@ -22,7 +22,7 @@ FALSE}
 \item{...}{Additonal function arguments}
 }
 \value{
-A
+A list of relevant video url's
 }
 \description{
 create a video from <tests> (character vector of test ids)

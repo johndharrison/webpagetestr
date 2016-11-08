@@ -8,7 +8,7 @@
 #' @template  dryRun 
 #' @template ellipsis
 #'
-#' @return A 
+#' @return A list of relevant video url's 
 #' @export
 #'  
 #' @example /inst/examples/docs/createVideo.R
