@@ -1,3 +1,7 @@
+# 0.0.9
+* Add cancelTest function, tests and docs
+* Add createVideo function, tests and docs
+
 # 0.0.8
 * Add runTest function, tests and docs
 
